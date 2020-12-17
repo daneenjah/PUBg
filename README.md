@@ -4,13 +4,21 @@ config/config.php is where you can set your players information.
 config/info.php is where you set the platform and enter in your key.
 
 counter.php is a simple hit counter.
+
 index.php displays displays your team stats.
+
 links.php provides the buttons for update/pubgreport and pubglookup.
+
 overall.php displays some overall stats for your team.
+
 players.php loads the tables with the stats.
+
 playerstats.php shows stats for an individual player.
+
 pull_seasonstats.php pulls season stats for a player.
+
 seasons.php updates data/seasons.txt, run this when a new season kicks off.
+
 stats.php parses the JSON files to pull the stats
 
 See it in action here: http://kd7nfr.asuscomm.com/pubg/
