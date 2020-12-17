@@ -1,2 +1,2 @@
 platform = "steam"
-key = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1ZjUyMzkwMC0wZjYxLTAxMzktMjJlMy0wMDYzMTcyNmJhMzQiLCJpc3MiOiJnYW1lbG9ja2VyIiwiaWF0IjoxNjA2MDk4NDU1LCJwdWIiOiJibHVlaG9sZSIsInRpdGxlIjoicHViZyIsImFwcCI6ImxvZi1wdWJnLXN0YXRzIn0.2pOd61vqyPRQVG3j4H0qtDfI4I6k9Fs7m_8qoN3p4mw"
+key = "YOUR KEY"
