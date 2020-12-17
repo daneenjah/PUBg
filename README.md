@@ -19,7 +19,7 @@ pull_seasonstats.php pulls season stats for a player.
 
 seasons.php updates data/seasons.txt, run this when a new season kicks off.
 
-stats.php parses the JSON files to pull the stats
+stats.php parses the JSON files to pull the stats.
 
 See it in action here: http://kd7nfr.asuscomm.com/pubg/
 PUBg's API documentation: https://documentation.pubg.com/en/index.html
