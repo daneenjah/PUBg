@@ -1,5 +1,4 @@
 <?php
-$fpp = $_GET['fpp'];
 
 $lines = file_get_contents($myFile); // file in to an array
 
@@ -52,6 +51,7 @@ $wins = $data["data"]["attributes"]["gameModeStats"][$mode]["wins"];
 
 $tmatches = $roundsPlayed - $wins;//subtract matches won from total matches
 
+if ($tmatches != 0) {
 $kdr = $kills / $tmatches;//get the kdr from kills divided by $tmatches
 
 $adr = number_format($damageDealt / $roundsPlayed);//divide damage by matches for adr
@@ -70,6 +70,9 @@ $boosts = $boosts / $roundsPlayed;//make boosts an average per match
 $headshotr = ($kills - $headshotKills) * 100;//subtract our headshot kills from overall kills
 $headshot = 100 - ($headshotr / $kills);//make headshots a percentage
 
+
+$winperc = number_format(($wins / $roundsPlayed) * 100);
+}
 // set colors for different kdr threshholds
 if ($kdr >= 8) {
   $kdrc = "#fc0584";
@@ -118,7 +121,7 @@ echo "\n";
 
 echo "<tr>";
 echo "\n";
-echo "  <th class=tg1><b>" . $hcolor . "Win %: </font></b>" . number_format(($wins / $roundsPlayed) * 100) . "%</th>";
+echo "  <th class=tg1><b>" . $hcolor . "Win %: </font></b>" . $winperc . "%</th>";
 echo "\n";
 echo "  <th class=tg1><b>" . $hcolor . "Top 10 %: </font></b>" . number_format((float)$top10, 2, '.', '') . "%</th></tr>";
 
