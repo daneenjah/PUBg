@@ -98,6 +98,16 @@ function submit() {
   shell_exec('php pull_seasonstats.php '.$name.' '.$season.'');
 }
 
+//an array to be called by the update button
+if(array_key_exists('submitall', $_POST)) {
+  submitall();
+}
+//function to run update all stats
+function submitall() {
+  $season = $_POST['season'];//pull the season from the form
+  shell_exec('php pull_all.php '.$season.'');
+}
+
 ?>
 
 <form method="post" action="index.php" name="update">
@@ -140,8 +150,9 @@ function submit() {
    </thead>
    </table>
 </form>
-<br />
-
+<form method=post>
+<input type=hidden name=season value=<?php echo  $season ?> />
+<input type=submit name=submitall class=button value="Update All"></form>
 <table>
   <tr>
     <?php
