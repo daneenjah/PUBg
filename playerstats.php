@@ -27,7 +27,11 @@ if (isset($_POST['tpp'])) {
 if (isset($_POST['season'])) {
     $season = $_POST['season'];
 } else {
-    $season = "";
+  $seasons = "data/seasons.txt";
+  $lines = file($seasons);//file in to an array
+
+  //set selected state for currently selected season
+  $season = preg_replace('/\s+/', '', $lines[0]);
 }
 
 //set the selected variable based on tpp
@@ -156,6 +160,7 @@ if ($tpp == "") {
         echo "</tr>";
         echo "\n";
         include 'stats.php';//pull the stats script
+        include 'stats_overall.php';//pull the stats script
       }
 ?>
     </table>
@@ -181,6 +186,7 @@ if ($tpp == "") {
           echo "</tr>";
           echo "\n";
           include 'stats.php';//pull the stats script
+          include 'stats_overall.php';//pull the stats script
         }
 ?>
 
@@ -206,6 +212,7 @@ if ($tpp == "") {
               echo "</tr>";
               echo "\n";
               include 'stats.php';//pull the stats script
+              include 'stats_overall.php';//pull the stats script
             }
 ?>
       </table>
