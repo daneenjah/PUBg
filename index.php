@@ -11,7 +11,7 @@
     </form>
 <br />
 <?php
-$mode = $_GET['mode'];//pull the mode from the form
+$mode = $_POST['mode'];//pull the mode from the form
 $tpp = $_POST['tpp'];//pull tpp from the form
 $season = $_POST['season'];//pull the season from the form
 
@@ -93,6 +93,7 @@ function submit() {
    <thead>
      <tr>
        <th class="tg2" colspan="1">
+        <input type="hidden" id="mode" name="mode" value = <?php echo $mode; ?> >
          <select name="tpp" id="tpp" onchange="update.submit()" class="select">
            <option value = false <?php echo $fppselected; ?>>FPP</option>
            <option value = true <?php echo $tppselected; ?>>TPP</option>
@@ -153,11 +154,13 @@ include 'overall.php';//pull the overall stats script
 ?>
 
 </table>
+
 <font size="2" color="#545454">
 <?php
 include 'counter.php';//pull the counter script
 ?>
 </font>
+
 </center>
 </body>
 </html>
