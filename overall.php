@@ -26,6 +26,9 @@ $myFile = "data/" . $name. "/". $name . "_" . $season . ".json";//specify the fi
 $lines = file_get_contents($myFile);
 $data = json_decode($lines, true);
 
+//if there are matches, set the rest of the variables
+if ((${'roundsPlayed' . $num} = $data["data"]["attributes"]["gameModeStats"][$mode]["roundsPlayed"]) != 0) {
+
 //pull our information from the json
 ${'damageDealt' . $num} = $data["data"]["attributes"]["gameModeStats"][$mode]["damageDealt"];
 ${'kills' . $num} = $data["data"]["attributes"]["gameModeStats"][$mode]["kills"];
@@ -39,8 +42,6 @@ ${'kdr' . $num} = ${'kills' . $num} / ${'tmatches' . $num};//get the kdr from ki
 ${'adr' . $num} = ${'damageDealt' . $num} / ${'tmatches' . $num};//get the kdr from kills divided by $tmatches
 ${'winsr' . $num} = ${'wins' . $num} / ${'roundsPlayed' . $num} * 100;//wins devided by matches
 
-//if there are matches, set the rest of the variables
-if (${'tmatches' . $num} != 0) {
 $tmatches = $tmatches + ${'tmatches' . $num};//subtract matches won from total matches
 
 //add our variables up while the loop cycles
