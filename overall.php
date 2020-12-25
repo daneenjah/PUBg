@@ -39,6 +39,8 @@ ${'kdr' . $num} = ${'kills' . $num} / ${'tmatches' . $num};//get the kdr from ki
 ${'adr' . $num} = ${'damageDealt' . $num} / ${'tmatches' . $num};//get the kdr from kills divided by $tmatches
 ${'winsr' . $num} = ${'wins' . $num} / ${'roundsPlayed' . $num} * 100;//wins devided by matches
 
+//if there are matches, set the rest of the variables
+if (${'tmatches' . $num} != 0) {
 $tmatches = $tmatches + ${'tmatches' . $num};//subtract matches won from total matches
 
 //add our variables up while the loop cycles
@@ -50,6 +52,7 @@ $wins = $winsr + ${'winsr' . $num};
 
 $top10rr = ${'top10s' . $num} / ${'roundsPlayed' . $num};
 $top10r = $top10r + $top10rr;
+}
 
 $count = $count+1;
 $num = $num+1;
