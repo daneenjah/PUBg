@@ -55,6 +55,7 @@ echo "    </tr>";
 $myFile = "data/" . $name. "/". $name . "_" . $season . ".json";//specify the file
 include 'links.php';//pull the links script
 include 'stats.php';//pull the stats script
+include 'stats_overall.php';//pull the stats script
 echo "  </table>";
 echo "\n";
 $count = $count+1;

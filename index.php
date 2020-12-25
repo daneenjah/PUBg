@@ -136,7 +136,7 @@ include('season_select.php')
   <tr>
     <?php
     include('config/config.php'); //include the config file for user information
-    include('players.php')
+    include('players.php');
     ?>
     </tr>
 </table>

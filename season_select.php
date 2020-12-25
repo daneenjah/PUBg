@@ -15,6 +15,7 @@ $season8 = preg_replace('/\s+/', '', $lines[7]);
 $season9 = preg_replace('/\s+/', '', $lines[8]);
 $season10 = preg_replace('/\s+/', '', $lines[9]);
 
+//set our variable to blanks to prevent error
 $selected1 = "";
 $selected2 = "";
 $selected3 = "";
