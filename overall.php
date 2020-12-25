@@ -1,6 +1,6 @@
 <?php
-$config = include('config/config.php'); // include the config file for user information
-$players = $config['players']['number']; // pull name
+$config = include('config/config.php'); //include the config file for user information
+$players = $config['players']['number']; //pull name
 
 //set the default variables to 0
 $tmatches = 0;
@@ -15,11 +15,11 @@ $top10r = 0;
 $num = 1;
 $count = 0;
 
-// set up a loop to run based on how many players are defined
+//set up a loop to run based on how many players are defined
 while ($count < $players)
 {
 //get the player names and set the file location
-$name = $config['player' . $num . '']['name']; // pull name
+$name = $config['player' . $num . '']['name']; //pull name
 $myFile = "data/" . $name. "/". $name . "_" . $season . ".json";//specify the file
 
 //get the datat pulled
@@ -74,7 +74,7 @@ if ($kdr >= 4) {
   $kdrc = "#00a1ce";
 }
 
-// set colors for different adr threshholds
+//set colors for different adr threshholds
 if ($adr >= 500) {
   $adrc = "#ff0000";
 } elseif ($adr >= 400) {

@@ -9,13 +9,17 @@ $success = "false"; // set false for error checking
 
 mkdir("data/$user"); // make our directory for the player files
 
-//function to do the API pull
+// function to do the API pull
 function getID(){
   global $store; // set store to global for error checking
   global $user; // set user to global for other functions
   $myFile = "data/".$user."/".$user.".json"; // set up our file name
 
   include('config/info.php'); //pull the key/platform information
+
+  // check to see if we already have the players information to save API calls
+  if (file_exists($myFile)) {
+  } else {
 
   // set the headers required to authenticate
   $headers = array(
@@ -45,6 +49,7 @@ function getID(){
   curl_close ($ch);
   fclose($fp);
 }
+}
 
 // run the function
 getID();
@@ -64,7 +69,7 @@ while (($success != "true") && ($i++ < 3))
 
 $success = "false"; // reset our success
 
-//function to do the API pull
+// function to do the API pull
 function getSeason(){
   global $store; // set store to global for error checking
   global $user; // set user

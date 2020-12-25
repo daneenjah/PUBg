@@ -1,31 +1,31 @@
 <?php
-// function to pull the seasons information
+//function to pull the seasons information
 function getSeasons(){
-  $myFile = "data/seasons.json"; // set up our file name
+  $myFile = "data/seasons.json"; //set up our file name
 
   include('config/info.php'); //pull the key/platform information
 
-  // set the headers required to authenticate
+  //set the headers required to authenticate
   $headers = array(
        'Authorization: Bearer ' .$key.'',
        'Accept: application/vnd.api+json'
   );
 
-  // set the filepath and curl
+  //set the filepath and curl
   $fp = fopen($myFile, "w+");
   $ch = curl_init();
 
-  // setup out URL for curl
+  //setup out URL for curl
   curl_setopt($ch, CURLOPT_URL,"https://api.pubg.com/shards/$platform/seasons");
-  // set a timeout, because PUBg API can hang randomly
+  //set a timeout, because PUBg API can hang randomly
   curl_setopt($ch, CURLOPT_TIMEOUT, 4);
-  // set out headers
+  //set out headers
   curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-  // return if it failed or not, used later in the loop
+  //return if it failed or not, used later in the loop
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-  // set what we're doing
+  //set what we're doing
   curl_setopt($ch, CURLOPT_FILE, $fp);
-  // execute it
+  //execute it
   $store = curl_exec ($ch);
 
   //tidy up
@@ -33,10 +33,10 @@ function getSeasons(){
   fclose($fp);
 }
 
-// run the function
+//run the function
 getSeasons();
 
-// a simple loop to keep trying until it passes for 3 tries
+//a simple loop to keep trying until it passes for 3 tries
 
 $i = 0;
 while (($success != "true") && ($i++ < 3))
@@ -45,7 +45,7 @@ while (($success != "true") && ($i++ < 3))
       $success = "true";
   }else{
       $success = "false";
-      getSeasons(); // run it again
+      getSeasons(); //run it again
   }
 }
 
@@ -96,7 +96,8 @@ fwrite($nfile, $dis_line);
 fclose($nfile);
 }
 
-//copy seasons2.txt that was created to seasons.txt and delete seasons2
+//copy seasons2.txt that was created to seasons.txt and delete the others
 copy("data/seasons2.txt","data/seasons.txt");
 unlink("data/seasons2.txt");
+unlink("data/seasons.json");
 ?>
