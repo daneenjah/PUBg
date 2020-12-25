@@ -1,48 +1,33 @@
 <!DOCTYPE html>
 <?php
-$name = $_GET['name'];//pull the name from the form
-$tpp = $_POST['tpp'];//pull tpp from the form
-$season = $_POST['season'];//pull the season from the form
 
-//load up seasons data
-$seasons = "data/seasons.txt";
-$lines = file($seasons);//file in to an array
+//set variable to prevent errors
+$fppselected = "";
+$tppselected = "";
 
-//remove any spaces from the season name
-$season1 = preg_replace('/\s+/', '', $lines[0]);
-$season2 = preg_replace('/\s+/', '', $lines[1]);
-$season3 = preg_replace('/\s+/', '', $lines[2]);
-$season4 = preg_replace('/\s+/', '', $lines[3]);
-$season5 = preg_replace('/\s+/', '', $lines[4]);
-$season6 = preg_replace('/\s+/', '', $lines[5]);
-$season7 = preg_replace('/\s+/', '', $lines[6]);
-$season8 = preg_replace('/\s+/', '', $lines[7]);
-$season9 = preg_replace('/\s+/', '', $lines[8]);
-$season10 = preg_replace('/\s+/', '', $lines[9]);
+//pull name, mode, tpp, and season from the form
+if (isset($_GET['name'])) {
+    $name = $_GET['name'];
+} else {
+    $name = "";
+}
 
-//set selected state for currently selected season
-if ($season == "") {
-  $season = $season1;
-} elseif ($season == $season1) {
-  $selected1 = "selected=selected";
-} elseif ($season == $season2) {
-  $selected2 = "selected=selected";
-} elseif ($season == $season3) {
-  $selected3 = "selected=selected";
-} elseif ($season == $season4) {
-  $selected4 = "selected=selected";
-} elseif ($season == $season5) {
-  $selected5 = "selected=selected";
-} elseif ($season == $season6) {
-  $selected6 = "selected=selected";
-} elseif ($season == $season7) {
-  $selected7 = "selected=selected";
-} elseif ($season == $season8) {
-  $selected8 = "selected=selected";
-} elseif ($season == $season9) {
-  $selected9 = "selected=selected";
-} elseif ($season == $season10) {
-  $selected10 = "selected=selected";
+if (isset($_POST['mode'])) {
+    $mode = $_POST['mode'];
+} else {
+    $mode = "squad";
+}
+
+if (isset($_POST['tpp'])) {
+    $tpp = $_POST['tpp'];
+} else {
+    $tpp = "false";
+}
+
+if (isset($_POST['season'])) {
+    $season = $_POST['season'];
+} else {
+    $season = "";
 }
 
 //set the selected variable based on tpp
@@ -105,6 +90,7 @@ function submit() {
 </tr>
 <tr>
   <?php
+      include 'season_select.php';
       $myFile = "data/" . $name. "/". $name . "_" . $season . ".json";//specify the file
       if (file_exists($myFile)) {
         include 'links.php';
@@ -112,6 +98,7 @@ function submit() {
   ?>
 </table>
 <br />
+        <form method="post" name="update" action="playerstats.php?name=<?php echo $name; ?>">
    <table class="tg2">
    <thead>
      <tr>
@@ -121,22 +108,20 @@ function submit() {
              <option value = false <?php echo $fppselected; ?>>FPP</option>
              <option value = true <?php echo $tppselected; ?>>TPP</option>
            </select>
-          </form>
        </th>
        <th class="tg2" colspan="2">
-        <form method="post" name="update" action="playerstats.php?name=<?php echo $name; ?>">
-         <select name="season" id="season" onchange="update.submit()" class="select">
-           <option value = <?php echo $season1; ?> <?php echo $selected1; ?>>Current Season</option>
-           <option value = <?php echo $season2; ?> <?php echo $selected2; ?>>Previous Season</option>
-           <option value = <?php echo $season3; ?> <?php echo $selected3; ?>>Previous Season 1</option>
-           <option value = <?php echo $season4; ?> <?php echo $selected4; ?>>Previous Season 2</option>
-           <option value = <?php echo $season5; ?> <?php echo $selected5; ?>>Previous Season 3</option>
-           <option value = <?php echo $season6; ?> <?php echo $selected6; ?>>Previous Season 4</option>
-           <option value = <?php echo $season7; ?> <?php echo $selected7; ?>>Previous Season 5</option>
-           <option value = <?php echo $season8; ?> <?php echo $selected8; ?>>Previous Season 6</option>
-           <option value = <?php echo $season9; ?> <?php echo $selected9; ?>>Previous Season 7</option>
-           <option value = <?php echo $season10; ?> <?php echo $selected10; ?>>Previous Season 8</option>
-        </select>
+<select name="season" id="season" onchange="update.submit()" class="select">
+  <option value=<?php echo $season1; echo $selected1;?>>Current Season</option>
+  <option value=<?php echo $season2; echo $selected2;?>>Previous Season</option>
+  <option value=<?php echo $season3; echo $selected3;?>>Previous Season 1</option>
+  <option value=<?php echo $season4; echo $selected4;?>>Previous Season 2</option>
+  <option value=<?php echo $season5; echo $selected5;?>>Previous Season 3</option>
+  <option value=<?php echo $season6; echo $selected6;?>>Previous Season 4</option>
+  <option value=<?php echo $season7; echo $selected7;?>>Previous Season 5</option>
+  <option value=<?php echo $season8; echo $selected8;?>>Previous Season 6</option>
+  <option value=<?php echo $season9; echo $selected9;?>>Previous Season 7</option>
+  <option value=<?php echo $season10; echo $selected10;?>>Previous Season 8</option>
+</select>
         </form>
        </th>
       <th class="tg2" colspan="2">

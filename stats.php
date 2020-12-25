@@ -4,8 +4,9 @@ $lines = file_get_contents($myFile); //file in to an array
 
 $data = json_decode($lines, true); //decode the json
 
-//if the mode isn't set, lets set it to fpp squad and set our colors per mode
+include('config/info.php'); //include the config file for timezone
 
+//if the mode isn't set, lets set it to fpp squad and set our colors per mode
 if ($mode == "") {
   $mode = "squad-fpp";
   $hcolor = "<font color=#48447C>";
@@ -22,6 +23,9 @@ if ($mode == "") {
 } elseif ($mode == "solo") {
   $hcolor = "<font color=#914B16>";
 }
+
+//if there are matches, set the rest of the variables
+if (($roundsPlayed = $data["data"]["attributes"]["gameModeStats"][$mode]["roundsPlayed"]) != 0) {
 
 //pull our data from the json
 $assists = $data["data"]["attributes"]["gameModeStats"][$mode]["assists"];
@@ -50,6 +54,34 @@ $weaponsAcquired = $data["data"]["attributes"]["gameModeStats"][$mode]["weaponsA
 $wins = $data["data"]["attributes"]["gameModeStats"][$mode]["wins"];
 
 $tmatches = $roundsPlayed - $wins;//subtract matches won from total matches
+} else {
+$assists = 0;
+$boosts = 0;
+$dBNOs = 0;
+$damageDealt = 0;
+$headshotKills = 0;
+$heals = 0;
+$kills = 0;
+$longestKill = 0;
+$longestTimeSurvived = 0;
+$losses = 0;
+$maxKillStreaks = 0;
+$revives = 0;
+$rideDistance = 0;
+$roundMostKills = 0;
+$roundsPlayed = 0;
+$suicides = 0;
+$swimDistance = 0;
+$teamKills = 0;
+$timeSurvived = 0;
+$top10s = 0;
+$vehicleDestroys = 0;
+$walkDistance = 0;
+$weaponsAcquired = 0;
+$wins = 0;
+
+$tmatches = 0;
+}
 
 //if there are matches, set the rest of the variables
 if ($tmatches != 0) {
@@ -69,11 +101,37 @@ $heals = $heals / $roundsPlayed;//make heals an average per match
 $boosts = $boosts / $roundsPlayed;//make boosts an average per match
 
 $headshotr = ($kills - $headshotKills) * 100;//subtract our headshot kills from overall kills
-$headshot = 100 - ($headshotr / $kills);//make headshots a percentage
-
 
 $winperc = number_format(($wins / $roundsPlayed) * 100);
+} else {
+$kdr = 0;
+
+$adr = 0;
+$adrr = 0;
+
+$top10 = 0;
+
+$avgsurvive = 0;
+
+$kda = 0;
+
+$heals = 0;
+
+$boosts = 0;
+
+$headshotr = 0;
+$headshot = 0;
+
+$winperc = 0;
 }
+
+//check if there's kills before getting headshot %
+if (($tmatches != 0) && ($kills != 0)) {
+  $headshot = 100 - ($headshotr / $kills);//make headshots a percentage
+} else {
+  $headshot = "none";
+}
+
 //set colors for different kdr threshholds
 if ($kdr >= 8) {
   $kdrc = "#fc0584";
@@ -108,7 +166,7 @@ if ($adrr >= 800) {
 
 echo "<tr>";
 echo "\n";
-echo "  <th class=tg1 colspan=2><center><font color=545454 size=2><b>Updated: " . date ("M d H:i:s", filemtime($myFile)) . " EST</b></font></center>";
+echo "  <th class=tg1 colspan=2><center><font color=545454 size=2><b>" . date ("M d H:i:s", filemtime($myFile)) . "" . $timezone . "</b></font></center>";
 
 echo "\n";
 echo "</tr>";
