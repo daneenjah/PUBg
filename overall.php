@@ -1,96 +1,64 @@
 <?php
-$lines1 = file_get_contents($myFile1);
-$data1 = json_decode($lines1, true);
+$config = include('config/config.php'); // include the config file for user information
+$players = $config['players']['number']; // pull name
 
-$lines2 = file_get_contents($myFile2);
-$data2 = json_decode($lines2, true);
+//set the default variables to 0
+$tmatches = 0;
+$kills = 0;
+$damage = 0;
+$kdrr = 0;
+$adrr = 0;
+$winsr = 0;
+$top10r = 0;
 
-$lines3 = file_get_contents($myFile3);
-$data3 = json_decode($lines3, true);
+//set our variables for the loop
+$num = 1;
+$count = 0;
 
-$lines4 = file_get_contents($myFile4);
-$data4 = json_decode($lines4, true);
+// set up a loop to run based on how many players are defined
+while ($count < $players)
+{
+//get the player names and set the file location
+$name = $config['player' . $num . '']['name']; // pull name
+$myFile = "data/" . $name. "/". $name . "_" . $season . ".json";//specify the file
 
-$lines5 = file_get_contents($myFile5);
-$data5 = json_decode($lines5, true);
+//get the datat pulled
+$lines = file_get_contents($myFile);
+$data = json_decode($lines, true);
 
-//pull all the information from the arrays
-$damageDealt1 = $data1["data"]["attributes"]["gameModeStats"]["squad-fpp"]["damageDealt"];
-$kills1 = $data1["data"]["attributes"]["gameModeStats"]["squad-fpp"]["kills"];
-$losses1 = $data1["data"]["attributes"]["gameModeStats"]["squad-fpp"]["losses"];
-$roundsPlayed1 = $data1["data"]["attributes"]["gameModeStats"]["squad-fpp"]["roundsPlayed"];
-$top10s1 = $data1["data"]["attributes"]["gameModeStats"]["squad-fpp"]["top10s"];
-$wins1 = $data1["data"]["attributes"]["gameModeStats"]["squad-fpp"]["wins"];
+//pull our information from the json
+${'damageDealt' . $num} = $data["data"]["attributes"]["gameModeStats"]["squad-fpp"]["damageDealt"];
+${'kills' . $num} = $data["data"]["attributes"]["gameModeStats"]["squad-fpp"]["kills"];
+${'losses' . $num} = $data["data"]["attributes"]["gameModeStats"]["squad-fpp"]["losses"];
+${'roundsPlayed' . $num} = $data["data"]["attributes"]["gameModeStats"]["squad-fpp"]["roundsPlayed"];
+${'top10s' . $num} = $data["data"]["attributes"]["gameModeStats"]["squad-fpp"]["top10s"];
+${'wins' . $num} = $data["data"]["attributes"]["gameModeStats"]["squad-fpp"]["wins"];
 
-$damageDealt2 = $data2["data"]["attributes"]["gameModeStats"]["squad-fpp"]["damageDealt"];
-$kills2 = $data2["data"]["attributes"]["gameModeStats"]["squad-fpp"]["kills"];
-$losses2 = $data2["data"]["attributes"]["gameModeStats"]["squad-fpp"]["losses"];
-$roundsPlayed2 = $data2["data"]["attributes"]["gameModeStats"]["squad-fpp"]["roundsPlayed"];
-$top10s2 = $data2["data"]["attributes"]["gameModeStats"]["squad-fpp"]["top10s"];
-$wins2 = $data2["data"]["attributes"]["gameModeStats"]["squad-fpp"]["wins"];
+${'tmatches' . $num} = ${'roundsPlayed' . $num} - ${'wins' . $num};//subtract matches won from total matches
+${'kdr' . $num} = ${'kills' . $num} / ${'tmatches' . $num};//get the kdr from kills divided by $tmatches
+${'adr' . $num} = ${'damageDealt' . $num} / ${'tmatches' . $num};//get the kdr from kills divided by $tmatches
+${'winsr' . $num} = ${'wins' . $num} / ${'roundsPlayed' . $num} * 100;//wins devided by matches
 
-$damageDealt3 = $data3["data"]["attributes"]["gameModeStats"]["squad-fpp"]["damageDealt"];
-$kills3 = $data3["data"]["attributes"]["gameModeStats"]["squad-fpp"]["kills"];
-$losses3 = $data3["data"]["attributes"]["gameModeStats"]["squad-fpp"]["losses"];
-$roundsPlayed3 = $data3["data"]["attributes"]["gameModeStats"]["squad-fpp"]["roundsPlayed"];
-$top10s3 = $data3["data"]["attributes"]["gameModeStats"]["squad-fpp"]["top10s"];
-$wins3 = $data3["data"]["attributes"]["gameModeStats"]["squad-fpp"]["wins"];
+$tmatches = $tmatches + ${'tmatches' . $num};//subtract matches won from total matches
 
-$damageDealt4 = $data4["data"]["attributes"]["gameModeStats"]["squad-fpp"]["damageDealt"];
-$kills4 = $data4["data"]["attributes"]["gameModeStats"]["squad-fpp"]["kills"];
-$losses4 = $data4["data"]["attributes"]["gameModeStats"]["squad-fpp"]["losses"];
-$roundsPlayed4 = $data4["data"]["attributes"]["gameModeStats"]["squad-fpp"]["roundsPlayed"];
-$top10s4 = $data4["data"]["attributes"]["gameModeStats"]["squad-fpp"]["top10s"];
-$wins4 = $data4["data"]["attributes"]["gameModeStats"]["squad-fpp"]["wins"];
+//add our variables up while the loop cycles
+$kills = $kills + ${'kills' . $num};
+$damage = $damage + ${'damageDealt' . $num};
+$kdrr = $kdrr + ${'kdr' . $num};
+$adrr = $adrr + ${'adr' . $num};
+$wins = $winsr + ${'winsr' . $num};
 
-$damageDealt5 = $data5["data"]["attributes"]["gameModeStats"]["squad-fpp"]["damageDealt"];
-$kills5 = $data5["data"]["attributes"]["gameModeStats"]["squad-fpp"]["kills"];
-$losses5 = $data5["data"]["attributes"]["gameModeStats"]["squad-fpp"]["losses"];
-$roundsPlayed5 = $data5["data"]["attributes"]["gameModeStats"]["squad-fpp"]["roundsPlayed"];
-$top10s5 = $data5["data"]["attributes"]["gameModeStats"]["squad-fpp"]["top10s"];
-$wins5 = $data5["data"]["attributes"]["gameModeStats"]["squad-fpp"]["wins"];
+$top10rr = ${'top10s' . $num} / ${'roundsPlayed' . $num};
+$top10r = $top10r + $top10rr;
 
-$tmatches1 = $roundsPlayed1 - $wins1;//subtract matches won from total matches
-$tmatches2 = $roundsPlayed2 - $wins2;
-$tmatches3 = $roundsPlayed3 - $wins3;
-$tmatches4 = $roundsPlayed4 - $wins4;
-$tmatches5 = $roundsPlayed5 - $wins5;
+$count = $count+1;
+$num = $num+1;
+}
 
-$kdr1 = $kills1 / $tmatches1;//get the kdr from kills divided by $tmatches
-$kdr2 = $kills2 / $tmatches2;
-$kdr3 = $kills3 / $tmatches3;
-$kdr4 = $kills4 / $tmatches4;
-$kdr5 = $kills5 / $tmatches5;
-
-$kdr = ($kdr1 + $kdr2 + $kdr3 + $kdr4 + $kdr5) / 5;//get the average
-
-$kills = ($kills1 + $kills2 + $kills3 + $kills4 + $kills5);//get the average
-
-$damage = ($damageDealt1 + $damageDealt2 + $damageDealt3 + $damageDealt4 + $damageDealt5);//get the average
-
-$adr1 = $damageDealt1 / $roundsPlayed1;//damage dealt divided by matches
-$adr2 = $damageDealt2 / $roundsPlayed2;
-$adr3 = $damageDealt3 / $roundsPlayed3;
-$adr4 = $damageDealt4 / $roundsPlayed4;
-$adr5 = $damageDealt5 / $roundsPlayed5;
-
-$adr = ($adr1 + $adr2 + $adr3 + $adr4 + $adr5) / 5;//get the average
-
-$win1 = $wins1 / $roundsPlayed1 * 100;//wins devided by matches
-$win2 = $wins2 / $roundsPlayed2 * 100;
-$win3 = $wins3 / $roundsPlayed3 * 100;
-$win4 = $wins4 / $roundsPlayed4 * 100;
-$win5 = $wins5 / $roundsPlayed5 * 100;
-
-$win = ($win1 + $win2 + $win3 + $win4 + $win5) / 5;//get the average
-
-$top1 = $top10s1 / $roundsPlayed1;//get the top 10 percentage
-$top2 = $top10s2 / $roundsPlayed2;
-$top3 = $top10s3 / $roundsPlayed3;
-$top4 = $top10s4 / $roundsPlayed4;
-$top5 = $top10s5 / $roundsPlayed5;
-
-$top10 = ($top1 + $top2 + $top3 + $top4 + $top5) * 100 / 5;//get the average
+//do some math for kdr/adr/top 10%
+$kdr = $kdrr / $players;
+$adr = $adrr / $players;
+$top10 = $top10r * 100 / $players;
 
 $hcolor = "<font color=#48447C>";//set the color of the title text
 
@@ -121,10 +89,11 @@ if ($adr >= 500) {
   $adrc = "#00a1ce";
 }
 
+
 echo "<tr><th class=tg1><center><font color=" . $kdrc . " size=4><b>KDR: </b>" . number_format((float)$kdr, 2, '.', '') . "</th>";
 echo "<th class=tg1><center><font color=" . $adrc . " size=4><b>ADR: </b>" . number_format((float)$adr, 0, '.', '') . "</th></tr>";
 
-echo "<tr><th class=tg1><b>" . $hcolor . "Win: </font></b>" . number_format((float)$win, 2, '.', '') . "%</th>";
+echo "<tr><th class=tg1><b>" . $hcolor . "Win: </font></b>" . number_format((float)$wins, 2, '.', '') . "%</th>";
 echo "<th class=tg1><b>" . $hcolor . "Top 10: </font></b>" . number_format((float)$top10, 2, '.', '') . "%</th></tr>";
 
 echo "<tr><th class=tg1><b>" . $hcolor . "Kills: </font></b>" . number_format($kills) . "</th>";
