@@ -51,6 +51,7 @@ $wins = $data["data"]["attributes"]["gameModeStats"][$mode]["wins"];
 
 $tmatches = $roundsPlayed - $wins;//subtract matches won from total matches
 
+//if there are matches, set the rest of the variables
 if ($tmatches != 0) {
 $kdr = $kills / $tmatches;//get the kdr from kills divided by $tmatches
 
