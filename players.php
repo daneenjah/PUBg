@@ -1,15 +1,15 @@
 <?php
-$config = include('config/config.php'); // include the config file for user information
-$players = $config['players']['number']; // pull name
+$config = include('config/config.php'); //include the config file for user information
+$players = $config['players']['number']; //pull name
 
 $num = 1;
 $count = 0;
 
-// set up a loop to run based on how many players are defined
+//set up a loop to run based on how many players are defined
 while ($count < $players)
 {
-$name = $config['player' . $num . '']['name']; // pull name
-$image = $config['player' . $num . '']['image']; // pull image
+$name = $config['player' . $num . '']['name']; //pull name
+$image = $config['player' . $num . '']['image']; //pull image
 echo "  <td>";
 echo "\n";
 echo "  <table class=tg>";

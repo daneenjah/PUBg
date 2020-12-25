@@ -1,10 +1,10 @@
 <?php
 
-$lines = file_get_contents($myFile); // file in to an array
+$lines = file_get_contents($myFile); //file in to an array
 
-$data = json_decode($lines, true); // decode the json
+$data = json_decode($lines, true); //decode the json
 
-// if the mode isn't set, lets set it to fpp squad and set our colors per mode
+//if the mode isn't set, lets set it to fpp squad and set our colors per mode
 
 if ($mode == "") {
   $mode = "squad-fpp";
@@ -23,7 +23,7 @@ if ($mode == "") {
   $hcolor = "<font color=#914B16>";
 }
 
-// pull our data from the json
+//pull our data from the json
 $assists = $data["data"]["attributes"]["gameModeStats"][$mode]["assists"];
 $boosts = $data["data"]["attributes"]["gameModeStats"][$mode]["boosts"];
 $dBNOs = $data["data"]["attributes"]["gameModeStats"][$mode]["dBNOs"];
@@ -73,7 +73,7 @@ $headshot = 100 - ($headshotr / $kills);//make headshots a percentage
 
 $winperc = number_format(($wins / $roundsPlayed) * 100);
 }
-// set colors for different kdr threshholds
+//set colors for different kdr threshholds
 if ($kdr >= 8) {
   $kdrc = "#fc0584";
 } elseif ($kdr >= 4) {
@@ -88,7 +88,7 @@ if ($kdr >= 8) {
   $kdrc = "#00a1ce";
 }
 
-// set colors for different adr threshholds
+//set colors for different adr threshholds
 if ($adrr >= 800) {
   $adrc = "#fc0584";
 } elseif ($adrr >= 500) {
@@ -108,7 +108,7 @@ if ($adrr >= 800) {
 echo "<tr><th class=tg1 colspan=2><center><font color=545454 size=2><b>Updated: " . date ("M d H:i:s", filemtime($myFile)) . " EST</b></font></center></th>";
 echo "\n";
 
-// echo all the things, html for tables and some number formating to make things cleaner.
+//echo all the things, html for tables and some number formating to make things cleaner.
 echo "<tr>";
 echo "\n";
 echo "<th class=tg1>";

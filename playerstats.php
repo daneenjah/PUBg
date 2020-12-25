@@ -5,11 +5,11 @@ $name = $_GET['name'];//pull the name from the form
 $tpp = $_POST['tpp'];//pull tpp from the form
 $season = $_POST['season'];//pull the season from the form
 
-// load up seasons data
+//load up seasons data
 $seasons = "data/seasons.txt";
 $lines = file($seasons);//file in to an array
 
-// remove any spaces from the season name
+//remove any spaces from the season name
 $season1 = preg_replace('/\s+/', '', $lines[0]);
 $season2 = preg_replace('/\s+/', '', $lines[1]);
 $season3 = preg_replace('/\s+/', '', $lines[2]);
@@ -21,7 +21,7 @@ $season8 = preg_replace('/\s+/', '', $lines[7]);
 $season9 = preg_replace('/\s+/', '', $lines[8]);
 $season10 = preg_replace('/\s+/', '', $lines[9]);
 
-// set selected state for currently selected season
+//set selected state for currently selected season
 if ($season == "") {
   $season = $season1;
 } elseif ($season == $season1) {
@@ -46,7 +46,7 @@ if ($season == "") {
   $selected10 = "selected=selected";
 }
 
-// set the selected variable based on tpp
+//set the selected variable based on tpp
 if ($tpp == "false") {
   $fppselected = "selected=selected";
 } elseif ($tpp == "false") {
@@ -57,18 +57,18 @@ if ($tpp == "false") {
   $tppselected = "selected=selected";
 }
 
-// check if the file exists to try and save some API calls
+//check if the file exists to try and save some API calls
 $myFile = "data/" . $name. "/". $name . "_" . $season . ".json";//specify the file
 if (file_exists($myFile)) {
 } else {
   shell_exec('php pull_seasonstats.php '.$name.' '.$season.'');
 }
 
-// an array to be called by the update button
+//an array to be called by the update button
 if(array_key_exists('submit', $_POST)) {
   submit();
 }
-// function to run update stats
+//function to run update stats
 function submit() {
   $name = $_POST['name'];//pull the name from the form
   $season = $_POST['season'];//pull the season from the form
@@ -119,14 +119,12 @@ function submit() {
      <tr>
        <th class="tg2" colspan="1">
          <form method="post" name="update" action="playerstats.php?name=<?php echo $name; ?>">
-        <input type="hidden" id="mode" name="mode" value = <?php echo $mode; ?> >
          <select name="tpp" id="tpp" onchange="update.submit()" class="select">
            <option value = false <?php echo $fppselected; ?>>FPP</option>
            <option value = true <?php echo $tppselected; ?>>TPP</option>
         </select>
        </th>
        <th class="tg2" colspan="2">
-        <input type="hidden" id="mode" name="mode" value = <?php echo $mode; ?> >
          <select name="season" id="season" onchange="update.submit()" class="select">
            <option value = <?php echo $season1; ?> <?php echo $selected1; ?>>Current Season</option>
            <option value = <?php echo $season2; ?> <?php echo $selected2; ?>>Previous Season</option>
@@ -157,7 +155,7 @@ function submit() {
 
 
 <?php
-// check if tpp is selected and change mode
+//check if tpp is selected and change mode
 if ($tpp == "") {
   $mode = "solo-fpp";
 } elseif ($tpp == "true") {
@@ -180,7 +178,7 @@ if ($tpp == "") {
     <table class="tg">
 
 <?php
-// check if tpp is selected and change mode
+//check if tpp is selected and change mode
 if ($tpp == "") {
   $mode = "duo-fpp";
 } elseif ($tpp == "true") {
@@ -204,7 +202,7 @@ if ($tpp == "") {
       <table class="tg">
 
 <?php
-// check if tpp is selected and change mode
+//check if tpp is selected and change mode
 if ($tpp == "") {
   $mode = "squad-fpp";
 } elseif ($tpp == "true") {

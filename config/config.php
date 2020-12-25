@@ -1,5 +1,5 @@
 <?php
-// set the player information
+//set the player information
 return [
     'player1' => [
         'name' => 'Acer803',
@@ -22,7 +22,7 @@ return [
         'image' => 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/ea/ea4565822b69737ebbdf06dc3f4ee85da586ee24_full.jpg',
     ],
     'players' => [
-        'number' => '5', // set hot many players to display
+        'number' => '5', //set hot many players to display
     ],
 ];
 ?>

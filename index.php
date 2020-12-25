@@ -15,11 +15,11 @@ $mode = $_POST['mode'];//pull the mode from the form
 $tpp = $_POST['tpp'];//pull tpp from the form
 $season = $_POST['season'];//pull the season from the form
 
-// load up seasons data
+//load up seasons data
 $seasons = "data/seasons.txt";
 $lines = file($seasons);//file in to an array
 
-// set selected state for currently selected season
+//set selected state for currently selected season
 $season1 = preg_replace('/\s+/', '', $lines[0]);
 $season2 = preg_replace('/\s+/', '', $lines[1]);
 $season3 = preg_replace('/\s+/', '', $lines[2]);
@@ -31,7 +31,7 @@ $season8 = preg_replace('/\s+/', '', $lines[7]);
 $season9 = preg_replace('/\s+/', '', $lines[8]);
 $season10 = preg_replace('/\s+/', '', $lines[9]);
 
-// set out selected state for currently selected season
+//set out selected state for currently selected season
 if ($season == "") {
   $season = $season1;
 } elseif ($season == $season1) {
@@ -56,7 +56,7 @@ if ($season == "") {
   $selected10 = "selected=selected";
 }
 
-// if tpp isn't selected, append mode with -fpp and set the selected variable
+//if tpp isn't selected, append mode with -fpp and set the selected variable
 if (($tpp == "false") && ($mode == "squad")) {
   $mode = "squad-fpp";
   $fppselected = "selected=selected";
@@ -70,16 +70,28 @@ if (($tpp == "false") && ($mode == "squad")) {
   $tppselected = "selected=selected";
 }
 
-// set default mode to squad-fpp for first load
+//if tpp is selected, change mode to reflect
+if (($tpp == "true") && ($mode == "squad-fpp")) {
+  $mode = "squad";
+  $tppselected = "selected=selected";
+} elseif (($tpp == "true") && ($mode == "duo-fpp")) {
+  $mode = "duo";
+  $tppselected = "selected=selected";
+} elseif (($tpp == "true") && ($mode == "solo-fpp")) {
+  $mode = "solo";
+  $tppselected = "selected=selected";
+}
+
+//set default mode to squad-fpp for first load
 if ($mode == "") {
   $mode = "squad-fpp";
 }
 
-// an array to be called by the update button
+//an array to be called by the update button
 if(array_key_exists('submit', $_POST)) {
   submit();
 }
-// function to run update stats
+//function to run update stats
 function submit() {
   $name = $_POST['name'];//pull the name from the form
   $season = $_POST['season'];//pull the season from the form
@@ -93,7 +105,6 @@ function submit() {
    <thead>
      <tr>
        <th class="tg2" colspan="1">
-        <input type="hidden" id="mode" name="mode" value = <?php echo $mode; ?> >
          <select name="tpp" id="tpp" onchange="update.submit()" class="select">
            <option value = false <?php echo $fppselected; ?>>FPP</option>
            <option value = true <?php echo $tppselected; ?>>TPP</option>
@@ -134,7 +145,7 @@ function submit() {
 <table>
   <tr>
     <?php
-    include('config/config.php'); // include the config file for user information
+    include('config/config.php'); //include the config file for user information
     include('players.php')
     ?>
     </tr>
