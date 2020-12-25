@@ -1,7 +1,5 @@
 <?php
-
 $lines = file_get_contents($myFile); //file in to an array
-
 $data = json_decode($lines, true); //decode the json
 
 include('config/info.php'); //include the config file for timezone

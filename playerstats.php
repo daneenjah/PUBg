@@ -110,18 +110,18 @@ function submit() {
            </select>
        </th>
        <th class="tg2" colspan="2">
-<select name="season" id="season" onchange="update.submit()" class="select">
-  <option value=<?php echo $season1; echo $selected1;?>>Current Season</option>
-  <option value=<?php echo $season2; echo $selected2;?>>Previous Season</option>
-  <option value=<?php echo $season3; echo $selected3;?>>Previous Season 1</option>
-  <option value=<?php echo $season4; echo $selected4;?>>Previous Season 2</option>
-  <option value=<?php echo $season5; echo $selected5;?>>Previous Season 3</option>
-  <option value=<?php echo $season6; echo $selected6;?>>Previous Season 4</option>
-  <option value=<?php echo $season7; echo $selected7;?>>Previous Season 5</option>
-  <option value=<?php echo $season8; echo $selected8;?>>Previous Season 6</option>
-  <option value=<?php echo $season9; echo $selected9;?>>Previous Season 7</option>
-  <option value=<?php echo $season10; echo $selected10;?>>Previous Season 8</option>
-</select>
+         <select name="season" id="season" onchange="update.submit()" class="select">
+           <option value=<?php echo $season1; echo $selected1;?>>Current Season</option>
+           <option value=<?php echo $season2; echo $selected2;?>>Previous Season</option>
+           <option value=<?php echo $season3; echo $selected3;?>>Previous Season 1</option>
+           <option value=<?php echo $season4; echo $selected4;?>>Previous Season 2</option>
+           <option value=<?php echo $season5; echo $selected5;?>>Previous Season 3</option>
+           <option value=<?php echo $season6; echo $selected6;?>>Previous Season 4</option>
+           <option value=<?php echo $season7; echo $selected7;?>>Previous Season 5</option>
+           <option value=<?php echo $season8; echo $selected8;?>>Previous Season 6</option>
+           <option value=<?php echo $season9; echo $selected9;?>>Previous Season 7</option>
+           <option value=<?php echo $season10; echo $selected10;?>>Previous Season 8</option>
+         </select>
         </form>
        </th>
       <th class="tg2" colspan="2">
