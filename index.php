@@ -11,7 +11,7 @@
     </form>
 <br />
 <?php
-$mode = $_POST['mode'];//pull the mode from the form
+$mode = $_GET['mode'];//pull the mode from the form
 $tpp = $_POST['tpp'];//pull tpp from the form
 $season = $_POST['season'];//pull the season from the form
 
@@ -149,21 +149,7 @@ function submit() {
               </tr>
 
 <?php
-// specify all the names for the 5 players average
-  $name1 = $config['player1']['name']; // pull name
-  $name2 = $config['player2']['name'];
-  $name3 = $config['player3']['name'];
-  $name4 = $config['player4']['name'];
-  $name5 = $config['player5']['name'];
-
-// specify all the data files for the 5 players average
-  $myFile1 = "data/" . $name1. "/". $name1 . "_" . $season . ".json";//specify the file
-  $myFile2 = "data/" . $name2. "/". $name2 . "_" . $season . ".json";
-  $myFile3 = "data/" . $name3. "/". $name3 . "_" . $season . ".json";
-  $myFile4 = "data/" . $name4. "/". $name4 . "_" . $season . ".json";
-  $myFile5 = "data/" . $name5. "/". $name5 . "_" . $season . ".json";
-
-include 'overall.php';//pull the stats script
+include 'overall.php';//pull the overall stats script
 ?>
 
 </table>

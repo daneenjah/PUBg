@@ -7,7 +7,7 @@ $season = $argv[2]; // pull our season name from the command line
 
 $success = "false"; // set false for error checking
 
-mkdir("data/$user");
+mkdir("data/$user"); // make our directory for the player files
 
 //function to do the API pull
 function getID(){
@@ -32,7 +32,7 @@ function getID(){
 
   // set a timeout, because PUBg API can hang randomly
   curl_setopt($ch, CURLOPT_TIMEOUT, 4);
-  // set out headers
+  // set our headers
   curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
   // return if it failed or not, used later in the loop
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
