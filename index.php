@@ -162,17 +162,26 @@ function submitall() {
     </tr>
 </table>
 
-          <table class="tg">
-              <tr>
-                <td class="tg1" colspan="2">
-                  <center>
-                      <b>Squads Overall</b>
-                  </center>
-                </td>
-              </tr>
-
 <?php
-include 'overall.php';//pull the overall stats script
+$squads = "no";
+
+if ($mode == "squad") {
+  $squads = "yes";
+} elseif ($mode == "squad-fpp"){
+  $squads = "yes";
+}
+
+if ($squads == "yes") {
+  echo"          <table class=tg>";
+  echo"              <tr>";
+  echo"                <td class=tg1 colspan=2>";
+  echo"                  <center>";
+  echo"                      <b>Squads Overall</b>";
+  echo"                  </center>";
+  echo"                </td>";
+  echo"              </tr>";
+  include 'overall.php';//pull the overall stats script
+}
 ?>
 
 </table>
