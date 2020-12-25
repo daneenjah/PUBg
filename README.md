@@ -16,9 +16,15 @@ This is a project I started to get back into programming after many years off. I
 
 *playerstats.php* - shows stats for an individual player.
 
+*pull_all.php* - pulls season stats for all players defined in config/config.php.
+
 *pull_seasonstats.php* - pulls season stats for a player.
 
+*season_select.php* - provides information for season selection.
+
 *seasons.php* - updates data/seasons.txt, run this when a new season kicks off.
+
+*stats_overall.php* - pulls from all seasons stored locally to display totals.
 
 *stats.php* - parses the JSON files to pull the stats.
 
