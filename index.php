@@ -15,6 +15,11 @@ $mode = $_POST['mode'];//pull the mode from the form
 $tpp = $_POST['tpp'];//pull tpp from the form
 $season = $_POST['season'];//pull the season from the form
 
+//set default mode to squad-fpp for first load
+if ($mode == "") {
+  $mode = "squad-fpp";
+}
+
 //load up seasons data
 $seasons = "data/seasons.txt";
 $lines = file($seasons);//file in to an array
@@ -57,14 +62,8 @@ if ($season == "") {
 }
 
 //if tpp isn't selected, append mode with -fpp and set the selected variable
-if (($tpp == "false") && ($mode == "squad")) {
-  $mode = "squad-fpp";
-  $fppselected = "selected=selected";
-} elseif (($tpp == "false") && ($mode == "duo")) {
-  $mode = "duo-fpp";
-  $fppselected = "selected=selected";
-} elseif (($tpp == "false") && ($mode == "solo")) {
-  $mode = "solo-fpp";
+if ($tpp == "false") {
+  $mode = "".$mode."-fpp";
   $fppselected = "selected=selected";
 } elseif ($tpp == "true") {
   $tppselected = "selected=selected";
@@ -80,11 +79,6 @@ if (($tpp == "true") && ($mode == "squad-fpp")) {
 } elseif (($tpp == "true") && ($mode == "solo-fpp")) {
   $mode = "solo";
   $tppselected = "selected=selected";
-}
-
-//set default mode to squad-fpp for first load
-if ($mode == "") {
-  $mode = "squad-fpp";
 }
 
 //an array to be called by the update button
@@ -109,7 +103,6 @@ function submitall() {
 }
 
 ?>
-
 <form method="post" action="index.php" name="update">
    <table class="tg2">
    <thead>
@@ -150,9 +143,12 @@ function submitall() {
    </thead>
    </table>
 </form>
+
 <form method=post>
-<input type=hidden name=season value=<?php echo  $season ?> />
-<input type=submit name=submitall class=button value="Update All"></form>
+  <input type=hidden name=season value=<?php echo  $season ?> />
+  <input type=submit name=submitall class=button value="Update All">
+</form>
+
 <table>
   <tr>
     <?php
@@ -172,14 +168,23 @@ if ($mode == "squad") {
 }
 
 if ($squads == "yes") {
-  echo"          <table class=tg>";
-  echo"              <tr>";
-  echo"                <td class=tg1 colspan=2>";
-  echo"                  <center>";
-  echo"                      <b>Squads Overall</b>";
-  echo"                  </center>";
-  echo"                </td>";
-  echo"              </tr>";
+  echo "<table class=tg>";
+  echo "\n";
+  echo "  <tr>";
+  echo "\n";
+  echo "    <td class=tg1 colspan=2>";
+  echo "\n";
+  echo "     <center>";
+  echo "\n";
+  echo "      <b>Squads Overall</b>";
+  echo "\n";
+  echo "     </center>";
+  echo "\n";
+  echo "    </td>";
+  echo "\n";
+  echo "   </tr>";
+  echo "\n";
+  echo "\n";
   include 'overall.php';//pull the overall stats script
 }
 ?>

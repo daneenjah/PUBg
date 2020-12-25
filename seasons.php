@@ -28,6 +28,13 @@ function getSeasons(){
   //execute it
   $store = curl_exec ($ch);
 
+  //some fallback in case the pull fails
+  $retry = 0;
+  while(curl_errno($ch) == 28 && $retry < 5){
+      $store = curl_exec($ch);
+      $retry++;
+  }
+
   //tidy up
   curl_close ($ch);
   fclose($fp);
@@ -36,23 +43,10 @@ function getSeasons(){
 //run the function
 getSeasons();
 
-//a simple loop to keep trying until it passes for 3 tries
-
-$i = 0;
-while (($success != "true") && ($i++ < 3))
-{
-  if($store){ //check for true/false
-      $success = "true";
-  }else{
-      $success = "false";
-      getSeasons(); //run it again
-  }
-}
-
 $myFile = "data/seasons.json";//set the file path
 $lines = file_get_contents($myFile);//file in to an array
 
-$data = json_decode($lines, true);
+$data = json_decode($lines, true);//decode the json
 
 //make the seasons.txt file
 $file = fopen('data/seasons.txt', 'w');
@@ -67,7 +61,7 @@ foreach ($data["data"] as $value) {
     }
 }
 
-$seasons = $total;
+$seasons = $total;//set how many seasons there are total
 
 //run a loop writing the seasons to the text file
 $i = 0;

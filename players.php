@@ -10,7 +10,7 @@ while ($count < $players)
 {
 $name = $config['player' . $num . '']['name']; //pull name
 $image = $config['player' . $num . '']['image']; //pull image
-echo "  <td>";
+echo " <td>";
 echo "\n";
 echo "  <table class=tg>";
 echo "\n";
@@ -28,23 +28,23 @@ echo "              <a href='playerstats.php?name=" . $name . "' target=_blank><
 echo "\n";
 echo "            </div>";
 echo "\n";
-echo "            <div class=column>";
+echo "          <div class=column>";
 echo "\n";
-echo "              <b><font size=4>" . $name . " </font></b>";
+echo "            <b><font size=4>" . $name . " </font></b>";
 echo "\n";
 echo "  <br /><br />";
 echo "\n";
 echo "        <form method=post>";
 echo "\n";
-echo "          <input type=hidden name=name value=" . $name . " />";
+echo "            <input type=hidden name=name value=" . $name . " />";
 echo "\n";
-echo "          <input type=hidden name=season value=" . $season . " />";
+echo "            <input type=hidden name=season value=" . $season . " />";
 echo "\n";
-echo "          <input type=submit name=submit class=button value=Update></form>";
+echo "            <input type=submit name=submit class=button value=Update></form>";
 echo "\n";
-echo "            </div>";
+echo "          </div>";
 echo "\n";
-echo "            </div>";
+echo "          </div>";
 echo "\n";
 echo "        </center>";
 echo "\n";
@@ -55,7 +55,6 @@ echo "    </tr>";
 $myFile = "data/" . $name. "/". $name . "_" . $season . ".json";//specify the file
 include 'links.php';//pull the links script
 include 'stats.php';//pull the stats script
-echo "\n";
 echo "  </table>";
 echo "\n";
 $count = $count+1;
