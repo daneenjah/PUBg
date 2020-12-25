@@ -12,11 +12,12 @@ $count = 0;
 
 while ($count < $players)
 {
-  global $num;
-  global $count;
-  global $user;
+  global $num; //set num
+  global $count; //set count
+  global $user; //set user
   $user = $config['player' . $num . '']['name']; //pull name
 
+  //set counts for loop
   $count = $count+1;
   $num = $num+1;
 

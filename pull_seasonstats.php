@@ -6,6 +6,7 @@ global $season; //set season to be global
 $season = $argv[2]; //pull our season name from the command line
 
 $myFile = "data/".$user."/".$user.".json"; //set up our file name
+//see if the file exists, if not make the directory
 if (file_exists($myFile)) {
 } else {
 mkdir("data/$user"); //make our directory for the player files

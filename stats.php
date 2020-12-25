@@ -106,127 +106,160 @@ if ($adrr >= 800) {
   $adrc = "#00a1ce";
 }
 
-echo "<tr><th class=tg1 colspan=2><center><font color=545454 size=2><b>Updated: " . date ("M d H:i:s", filemtime($myFile)) . " EST</b></font></center></th>";
+echo "<tr>";
+echo "\n";
+echo "  <th class=tg1 colspan=2><center><font color=545454 size=2><b>Updated: " . date ("M d H:i:s", filemtime($myFile)) . " EST</b></font></center>";
+
+echo "\n";
+echo "</tr>";
 echo "\n";
 
 //echo all the things, html for tables and some number formating to make things cleaner.
 echo "<tr>";
 echo "\n";
-echo "<th class=tg1>";
+echo "  <th class=tg1><center><font color=" . $kdrc . " size=4><b>KDR: </b>" . number_format((float)$kdr, 2, '.', '') . "</font></center></th>";
 echo "\n";
-echo "  <center><font color=" . $kdrc . " size=4><b>KDR: </b>" . number_format((float)$kdr, 2, '.', '') . "</font></center></th>";
-echo "\n";
-echo "  <th class=tg1><center><font color=" . $adrc . " size=4><b>ADR: </b>" . $adr . "</font></center></th></tr>";
+echo "  <th class=tg1><center><font color=" . $adrc . " size=4><b>ADR: </b>" . $adr . "</font></center></th>";
 
+echo "\n";
+echo "</tr>";
 echo "\n";
 
 echo "<tr>";
 echo "\n";
 echo "  <th class=tg1><b>" . $hcolor . "Win %: </font></b>" . $winperc . "%</th>";
 echo "\n";
-echo "  <th class=tg1><b>" . $hcolor . "Top 10 %: </font></b>" . number_format((float)$top10, 2, '.', '') . "%</th></tr>";
+echo "  <th class=tg1><b>" . $hcolor . "Top 10 %: </font></b>" . number_format((float)$top10, 2, '.', '') . "%</th>";
 
+echo "\n";
+echo "</tr>";
 echo "\n";
 
 echo "<tr>";
 echo "\n";
 echo "  <th class=tg1><b>" . $hcolor . "Lng Kill: </font></b>" . number_format((float)$longestKill, 0, '.', '') . "m</th>";
 echo "\n";
-echo "  <th class=tg1><b>" . $hcolor . "Heads: </font></b>". number_format((float)$headshot, 1, '.', '') . "%</th></tr>";
+echo "  <th class=tg1><b>" . $hcolor . "Heads: </font></b>". number_format((float)$headshot, 1, '.', '') . "%</th>";
 
+echo "\n";
+echo "</tr>";
 echo "\n";
 
 echo "<tr>";
 echo "\n";
 echo "  <th class=tg1><b>" . $hcolor . "Top 10s: </font></b>" . $top10s . "</th>";
 echo "\n";
-echo "  <th class=tg1><b>" . $hcolor . "Avg Svd: </font></b>" . number_format((float)$avgsurvive, 1, '.', '') . "m</th></tr>";
+echo "  <th class=tg1><b>" . $hcolor . "Avg Svd: </font></b>" . number_format((float)$avgsurvive, 1, '.', '') . "m</th>";
 
+echo "\n";
+echo "</tr>";
 echo "\n";
 
 echo "<tr>";
 echo "\n";
 echo "  <th class=tg1><b>" . $hcolor . "Most Kills: </font></b>" . $roundMostKills . "</th>";
 echo "\n";
-echo "  <th class=tg1><b>" . $hcolor . "KDA: </font></b>" . number_format((float)$kda, 2, '.', '') . "</th></tr>";
+echo "  <th class=tg1><b>" . $hcolor . "KDA: </font></b>" . number_format((float)$kda, 2, '.', '') . "</th>";
 
+echo "\n";
+echo "</tr>";
 echo "\n";
 
 echo "<tr>";
 echo "\n";
 echo "  <th class=tg1><b>" . $hcolor . "Assists: </font></b>" . $assists . "</th>";
 echo "\n";
-echo "  <th class=tg1><b>" . $hcolor . "Wins: </font></b>" . $wins . "</th></tr>";
+echo "  <th class=tg1><b>" . $hcolor . "Wins: </font></b>" . $wins . "</th>";
 
+echo "\n";
+echo "</tr>";
 echo "\n";
 
 echo "<tr>";
 echo "\n";
 echo "  <th class=tg1><b>" . $hcolor . "Dmg: </font></b>" . number_format($damageDealt) . "</th>";
 echo "\n";
-echo "  <th class=tg1><b>" . $hcolor . "Kills: </font></b>" . $kills . "</th></tr>";
+echo "  <th class=tg1><b>" . $hcolor . "Kills: </font></b>" . $kills . "</th>";
 
+echo "\n";
+echo "</tr>";
 echo "\n";
 
 echo "<tr>";
 echo "\n";
 echo "  <th class=tg1><b>" . $hcolor . "Heals: </font></b>" . number_format((float)$heals, 2, '.', '') . "</th>";
 echo "\n";
-echo "  <th class=tg1><b>" . $hcolor . "Boosts: </font></b>" . number_format((float)$boosts, 2, '.', '') . "</th></tr>";
+echo "  <th class=tg1><b>" . $hcolor . "Boosts: </font></b>" . number_format((float)$boosts, 2, '.', '') . "</th>";
 
+echo "\n";
+echo "</tr>";
 echo "\n";
 
 echo "<tr>";
 echo "\n";
 echo "  <th class=tg1><b>" . $hcolor . "dBNOs: </font></b>" . $dBNOs . "</th>";
 echo "\n";
-echo "  <th class=tg1><b>" . $hcolor . "Lng Svd: </font></b>" . number_format((float)($longestTimeSurvived / 60), 1, '.', '') . "m</th></tr>";
+echo "  <th class=tg1><b>" . $hcolor . "Lng Svd: </font></b>" . number_format((float)($longestTimeSurvived / 60), 1, '.', '') . "m</th>";
 
+echo "\n";
+echo "</tr>";
 echo "\n";
 
 echo "<tr>";
 echo "\n";
 echo "  <th class=tg1><b>" . $hcolor . "Losses: </font></b>" . $losses . "</th>";
 echo "\n";
-echo "  <th class=tg1><b>" . $hcolor . "Matches: </font></b>" . $roundsPlayed . "</th></tr>";
+echo "  <th class=tg1><b>" . $hcolor . "Matches: </font></b>" . $roundsPlayed . "</th>";
 
+echo "\n";
+echo "</tr>";
 echo "\n";
 
 echo "<tr>";
 echo "\n";
 echo "  <th class=tg1><b>" . $hcolor . "Time Alive: </font></b>" . number_format(($timeSurvived / 60) / 60) . "h</th>";
 echo "\n";
-echo "  <th class=tg1><b>" . $hcolor . "Wpn Aqd: </font></b>" . number_format($weaponsAcquired) . "</th></tr>";
+echo "  <th class=tg1><b>" . $hcolor . "Wpn Aqd: </font></b>" . number_format($weaponsAcquired) . "</th>";
 
+echo "\n";
+echo "</tr>";
 echo "\n";
 
 echo "<tr>";
 echo "\n";
 echo "  <th class=tg1><b>" . $hcolor . "Killstreak: </font></b>" . $maxKillStreaks . "</th>";
 echo "\n";
-echo "  <th class=tg1><b>" . $hcolor . "Team Kills: </font></b>" . $teamKills . "</th></tr>";
+echo "  <th class=tg1><b>" . $hcolor . "Team Kills: </font></b>" . $teamKills . "</th>";
 
+echo "\n";
+echo "</tr>";
 echo "\n";
 
 echo "<tr>";
 echo "\n";
 echo "  <th class=tg1><b>" . $hcolor . "Revives: </font></b>" . $revives . "</th>";
 echo "\n";
-echo "  <th class=tg1><b>" . $hcolor . "Suicides: </font></b>" . $suicides . "</th></tr>";
+echo "  <th class=tg1><b>" . $hcolor . "Suicides: </font></b>" . $suicides . "</th>";
 
 echo "\n";
-
+echo "</tr>";
+echo "\n";
 echo "<tr>";
 echo "\n";
 echo "  <th class=tg1><b>" . $hcolor . "Swam: </font></b>" . number_format($swimDistance) . "m</th>";
 echo "\n";
-echo "  <th class=tg1><b>" . $hcolor . "Cars Dstrd: </font></b>" . $vehicleDestroys . "</th></tr>";
+echo "  <th class=tg1><b>" . $hcolor . "Cars Dstrd: </font></b>" . $vehicleDestroys . "</th>";
 
+echo "\n";
+echo "</tr>";
 echo "\n";
 
 echo "<tr>";
 echo "\n";
 echo "  <th class=tg1><b>" . $hcolor . "Ride: </font></b>" . number_format($rideDistance / 1000) . "km</th>";
 echo "\n";
-echo "  <th class=tg1><b>" . $hcolor . "Walk: </font></b>" . number_format($walkDistance / 1000) . "km</th></tr>";
+echo "  <th class=tg1><b>" . $hcolor . "Walk: </font></b>" . number_format($walkDistance / 1000) . "km</th>";
+echo "\n";
+echo "</tr>";
+echo "\n";
 ?>

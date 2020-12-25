@@ -13,6 +13,7 @@ $count = abs( intval( $count ) ) + 1;
 
 //Output the updated count.
 echo "Hits: {$count}";
+echo "\n";
 
 //Opens countlog.txt to change new hit number.
 $file = fopen( $path, 'w' );

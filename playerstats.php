@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <?php
 $name = $_GET['name'];//pull the name from the form
 $tpp = $_POST['tpp'];//pull tpp from the form
@@ -75,7 +74,6 @@ function submit() {
   shell_exec('php pull_seasonstats.php '.$name.' '.$season.'');
 }
 ?>
-
 <html>
 <head>
   <title><?php echo $name ?> PUBg Stats</title>
@@ -105,7 +103,7 @@ function submit() {
     </center>
   </td>
 </tr>
-    <tr>
+<tr>
   <?php
       $myFile = "data/" . $name. "/". $name . "_" . $season . ".json";//specify the file
       if (file_exists($myFile)) {
@@ -119,12 +117,14 @@ function submit() {
      <tr>
        <th class="tg2" colspan="1">
          <form method="post" name="update" action="playerstats.php?name=<?php echo $name; ?>">
-         <select name="tpp" id="tpp" onchange="update.submit()" class="select">
-           <option value = false <?php echo $fppselected; ?>>FPP</option>
-           <option value = true <?php echo $tppselected; ?>>TPP</option>
-        </select>
+           <select name="tpp" id="tpp" onchange="update.submit()" class="select">
+             <option value = false <?php echo $fppselected; ?>>FPP</option>
+             <option value = true <?php echo $tppselected; ?>>TPP</option>
+           </select>
+          </form>
        </th>
        <th class="tg2" colspan="2">
+        <form method="post" name="update" action="playerstats.php?name=<?php echo $name; ?>">
          <select name="season" id="season" onchange="update.submit()" class="select">
            <option value = <?php echo $season1; ?> <?php echo $selected1; ?>>Current Season</option>
            <option value = <?php echo $season2; ?> <?php echo $selected2; ?>>Previous Season</option>
@@ -151,9 +151,7 @@ function submit() {
 <table>
   <tr>
     <td>
-  <table class="tg" style="width:250px">
-
-
+      <table class="tg">
 <?php
 //check if tpp is selected and change mode
 if ($tpp == "") {
@@ -166,17 +164,19 @@ if ($tpp == "") {
 
       $myFile = "data/" . $name. "/". $name . "_" . $season . ".json";//specify the file
       if (file_exists($myFile)) {
-        echo "<tr><td class=tg1 colspan=2><center><b><font color=#914B16>Solos</font></b></center></td></tr>";
+        echo "<tr>";
+        echo "\n";
+        echo "  <td class=tg1 colspan=2><center><b><font color=#914B16>Solos</font></b></center></td>";
+        echo "\n";
+        echo "</tr>";
+        echo "\n";
         include 'stats.php';//pull the stats script
       }
 ?>
-
-</table>
+    </table>
   </td>
   <td>
-
     <table class="tg">
-
 <?php
 //check if tpp is selected and change mode
 if ($tpp == "") {
@@ -189,18 +189,20 @@ if ($tpp == "") {
 
         $myFile = "data/" . $name. "/". $name . "_" . $season . ".json";//specify the file
         if (file_exists($myFile)) {
-          echo "<tr><td class=tg1 colspan=2><center><b><font color=#368480>Duos</font></b></center></td></tr>";
+          echo "<tr>";
+          echo "\n";
+          echo "  <td class=tg1 colspan=2><center><b><font color=#368480>Duos</font></b></center></td>";
+          echo "\n";
+          echo "</tr>";
+          echo "\n";
           include 'stats.php';//pull the stats script
         }
 ?>
 
-</table>
-
+    </table>
   </td>
-  <td>
-
+    <td>
       <table class="tg">
-
 <?php
 //check if tpp is selected and change mode
 if ($tpp == "") {
@@ -212,13 +214,18 @@ if ($tpp == "") {
 }
             $myFile = "data/" . $name. "/". $name . "_" . $season . ".json";//specify the file
             if (file_exists($myFile)) {
-              echo "<tr><td class=tg1 colspan=2><center><b><font color=#48447C>Squads</font></b></center></td></tr>";
+              echo "<tr>";
+              echo "\n";
+              echo "  <td class=tg1 colspan=2><center><b><font color=#48447C>Squads</font></b></center></td>";
+              echo "\n";
+              echo "</tr>";
+              echo "\n";
               include 'stats.php';//pull the stats script
             }
 ?>
-
-</table>
-</td></tr>
+      </table>
+    </td>
+  </tr>
 </table>
 </center>
 </body>

@@ -27,12 +27,12 @@ $lines = file_get_contents($myFile);
 $data = json_decode($lines, true);
 
 //pull our information from the json
-${'damageDealt' . $num} = $data["data"]["attributes"]["gameModeStats"]["squad-fpp"]["damageDealt"];
-${'kills' . $num} = $data["data"]["attributes"]["gameModeStats"]["squad-fpp"]["kills"];
-${'losses' . $num} = $data["data"]["attributes"]["gameModeStats"]["squad-fpp"]["losses"];
-${'roundsPlayed' . $num} = $data["data"]["attributes"]["gameModeStats"]["squad-fpp"]["roundsPlayed"];
-${'top10s' . $num} = $data["data"]["attributes"]["gameModeStats"]["squad-fpp"]["top10s"];
-${'wins' . $num} = $data["data"]["attributes"]["gameModeStats"]["squad-fpp"]["wins"];
+${'damageDealt' . $num} = $data["data"]["attributes"]["gameModeStats"][$mode]["damageDealt"];
+${'kills' . $num} = $data["data"]["attributes"]["gameModeStats"][$mode]["kills"];
+${'losses' . $num} = $data["data"]["attributes"]["gameModeStats"][$mode]["losses"];
+${'roundsPlayed' . $num} = $data["data"]["attributes"]["gameModeStats"][$mode]["roundsPlayed"];
+${'top10s' . $num} = $data["data"]["attributes"]["gameModeStats"][$mode]["top10s"];
+${'wins' . $num} = $data["data"]["attributes"]["gameModeStats"][$mode]["wins"];
 
 ${'tmatches' . $num} = ${'roundsPlayed' . $num} - ${'wins' . $num};//subtract matches won from total matches
 ${'kdr' . $num} = ${'kills' . $num} / ${'tmatches' . $num};//get the kdr from kills divided by $tmatches
@@ -93,12 +93,27 @@ if ($adr >= 500) {
 }
 
 
-echo "<tr><th class=tg1><center><font color=" . $kdrc . " size=4><b>KDR: </b>" . number_format((float)$kdr, 2, '.', '') . "</th>";
-echo "<th class=tg1><center><font color=" . $adrc . " size=4><b>ADR: </b>" . number_format((float)$adr, 0, '.', '') . "</th></tr>";
-
-echo "<tr><th class=tg1><b>" . $hcolor . "Win: </font></b>" . number_format((float)$wins, 2, '.', '') . "%</th>";
-echo "<th class=tg1><b>" . $hcolor . "Top 10: </font></b>" . number_format((float)$top10, 2, '.', '') . "%</th></tr>";
-
-echo "<tr><th class=tg1><b>" . $hcolor . "Kills: </font></b>" . number_format($kills) . "</th>";
-echo "<th class=tg1><b>" . $hcolor . "Dmg: </font></b>" . number_format($damage) . "</th></tr>";
+echo "<tr>";
+echo "\n";
+echo "  <th class=tg1><center><font color=" . $kdrc . " size=4><b>KDR: </b>" . number_format((float)$kdr, 2, '.', '') . "</font></center></th>";
+echo "\n";
+echo "  <th class=tg1><center><font color=" . $adrc . " size=4><b>ADR: </b>" . number_format((float)$adr, 0, '.', '') . "</font></center></th>";
+echo "\n";
+echo "</tr>";
+echo "\n";
+echo "<tr>";
+echo "\n";
+echo "  <th class=tg1><b>" . $hcolor . "Win: </font></b>" . number_format((float)$wins, 2, '.', '') . "%</th>";
+echo "\n";
+echo "  <th class=tg1><b>" . $hcolor . "Top 10: </font></b>" . number_format((float)$top10, 2, '.', '') . "%</th>";
+echo "\n";
+echo "</tr>";
+echo "\n";
+echo "<tr>";
+echo "\n";
+echo "  <th class=tg1><b>" . $hcolor . "Kills: </font></b>" . number_format($kills) . "</th>";
+echo "\n";
+echo "  <th class=tg1><b>" . $hcolor . "Dmg: </font></b>" . number_format($damage) . "</th>";
+echo "\n";
+echo "</tr>";
 ?>
