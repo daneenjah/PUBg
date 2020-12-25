@@ -119,15 +119,15 @@ function submit() {
      <tr>
        <th class="tg2" colspan="1">
          <form method="post" name="update" action="playerstats.php?name=<?php echo $name; ?>">
+        <input type="hidden" id="mode" name="mode" value = <?php echo $mode; ?> >
          <select name="tpp" id="tpp" onchange="update.submit()" class="select">
            <option value = false <?php echo $fppselected; ?>>FPP</option>
            <option value = true <?php echo $tppselected; ?>>TPP</option>
         </select>
-        </form>
        </th>
        <th class="tg2" colspan="2">
-         <form method="post" name="update2" action="playerstats.php?name=<?php echo $name; ?>">
-         <select name="season" id="season" onchange="update2.submit()" class="select">
+        <input type="hidden" id="mode" name="mode" value = <?php echo $mode; ?> >
+         <select name="season" id="season" onchange="update.submit()" class="select">
            <option value = <?php echo $season1; ?> <?php echo $selected1; ?>>Current Season</option>
            <option value = <?php echo $season2; ?> <?php echo $selected2; ?>>Previous Season</option>
            <option value = <?php echo $season3; ?> <?php echo $selected3; ?>>Previous Season 1</option>
