@@ -24,8 +24,6 @@ $all_lines = file($file);
 
 $seasonsr = count($all_lines);
 
-
-
 //set our counts for the loop
 $countr = 0;
 $numr = 1;
@@ -40,7 +38,6 @@ while ($countr < $seasonsr)
     //check if the file exists
     if (file_exists($myFiler)) {
       $lines = file_get_contents($myFiler); //file in to an array
-
       $data = json_decode($lines, true); //decode the json
 
       //pull our time survived and add it to the the total time
