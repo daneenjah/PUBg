@@ -22,7 +22,7 @@ while ($count < $players)
 $name = $config['player' . $num . '']['name']; //pull name
 $myFile = "data/" . $name. "/". $name . "_" . $season . ".json";//specify the file
 
-//get the datat pulled
+//get the data pulled
 $lines = file_get_contents($myFile);
 $data = json_decode($lines, true);
 

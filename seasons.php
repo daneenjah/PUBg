@@ -99,5 +99,4 @@ fclose($nfile);
 //copy seasons2.txt that was created to seasons.txt and delete the others
 copy("data/seasons2.txt","data/seasons.txt");
 unlink("data/seasons2.txt");
-unlink("data/seasons.json");
 ?>
