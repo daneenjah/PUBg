@@ -35,3 +35,11 @@ PUBg's API documentation: https://documentation.pubg.com/en/index.html
 I have opted to keep this text file based for now. I haven't had the inclination to add match stats yet, but if I do I'll be migrating to a real database. All player information is kept in /data/<playername> to aid in cleanup.
 
 Clicking on a player's image will open up their stat page.
+
+ToDo:
+
+-Ranked Stats
+
+-Config interface
+
+-Cleanup script
