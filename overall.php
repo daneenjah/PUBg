@@ -6,7 +6,9 @@ $players = $config['players']['number']; //pull name
 $tmatches = 0;
 $kills = 0;
 $damage = 0;
+$kdr = 0;
 $kdrr = 0;
+$adr = 0;
 $adrr = 0;
 $winsr = 0;
 $top10r = 0;
@@ -39,7 +41,7 @@ ${'wins' . $num} = $data["data"]["attributes"]["gameModeStats"][$mode]["wins"];
 
 ${'tmatches' . $num} = ${'roundsPlayed' . $num} - ${'wins' . $num};//subtract matches won from total matches
 ${'kdr' . $num} = ${'kills' . $num} / ${'tmatches' . $num};//get the kdr from kills divided by $tmatches
-${'adr' . $num} = ${'damageDealt' . $num} / ${'tmatches' . $num};//get the kdr from kills divided by $tmatches
+${'adr' . $num} = ${'damageDealt' . $num} / ${'roundsPlayed' . $num};//get the kdr from kills divided by $tmatches
 ${'winsr' . $num} = ${'wins' . $num} / ${'roundsPlayed' . $num} * 100;//wins devided by matches
 
 $tmatches = $tmatches + ${'tmatches' . $num};//subtract matches won from total matches
