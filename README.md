@@ -28,7 +28,7 @@ This is a project I started to get back into programming after many years off. I
 
 *stats.php* - parses the JSON files to pull the stats.
 
-See it in action here: http://kd7nfr.asuscomm.com/pubg/
+See it in action here: https://hootis.net/
 
 PUBg's API documentation: https://documentation.pubg.com/en/index.html
 
