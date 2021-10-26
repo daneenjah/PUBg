@@ -103,7 +103,7 @@ foreach($rows as $key => $row) {
 
 file_put_contents("data/seasons2.txt", implode( $rows));
 
-//Copy seasons2.txt that was created to seasons.txt and delete the others
+//copy seasons2.txt that was created to seasons.txt and delete the others
 copy("data/seasons2.txt","data/seasons.txt");
 unlink("data/seasons2.txt");
 ?>
