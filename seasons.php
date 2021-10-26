@@ -90,7 +90,20 @@ fwrite($nfile, $dis_line);
 fclose($nfile);
 }
 
-//copy seasons2.txt that was created to seasons.txt and delete the others
+//look for console in the text file and delete it as we only want the PC seaosons
+
+$rows = file("data/seasons2.txt");    
+$blacklist = "console";
+
+foreach($rows as $key => $row) {
+    if(preg_match("/($blacklist)/", $row)) {
+        unset($rows[$key]);
+    }
+}
+
+file_put_contents("data/seasons2.txt", implode( $rows));
+
+//Copy seasons2.txt that was created to seasons.txt and delete the others
 copy("data/seasons2.txt","data/seasons.txt");
 unlink("data/seasons2.txt");
 ?>
