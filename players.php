@@ -1,15 +1,27 @@
 <?php
-$config = include('config/config.php'); //include the config file for user information
-$players = $config['players']['number']; //pull name
+// load players json
+$data = file_get_contents('config/players.json');
 
-$num = 1;
+// decode json to associative array
+$json_arr = json_decode($data, true);
+
+// load config json
+$config = file_get_contents('config/config.json');
+
+// decode json to associative array
+$json_arr2 = json_decode($config, true);
+
+// set player amount
+$players = $json_arr2[0]['Amount'];
+
+// set a counter for a the loop
 $count = 0;
 
 //set up a loop to run based on how many players are defined
 while ($count < $players)
 {
-$name = $config['player' . $num . '']['name']; //pull name
-$image = $config['player' . $num . '']['image']; //pull image
+$name = $json_arr[$count]['Name']; //pull name
+$image = $json_arr[$count]['Image']; //pull image
 echo " <td>";
 echo "\n";
 echo "  <table class=tg>";
@@ -59,6 +71,5 @@ include 'stats_overall.php';//pull the stats script
 echo "  </table>";
 echo "\n";
 $count = $count+1;
-$num = $num+1;
 }
 ?>

@@ -1,6 +1,9 @@
 <?php
-$config = include('config/config.php'); //include the config file for user information
-$players = $config['players']['number']; //pull name
+// load players json
+$data = file_get_contents('config/players.json');
+
+// decode json to associative array
+$json_arr = json_decode($data, true);
 
 //set the default variables to 0
 $tmatches = 0;
@@ -21,7 +24,7 @@ $count = 0;
 while ($count < $players)
 {
 //get the player names and set the file location
-$name = $config['player' . $num . '']['name']; //pull name
+$name = $json_arr[$count]['Name']; //pull name
 $myFile = "data/" . $name. "/". $name . "_" . $season . ".json";//specify the file
 
 //get the data pulled

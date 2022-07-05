@@ -1,7 +1,18 @@
 <?php
-$config = include('config/config.php'); //include the config file for user information
+// load players json
+$data = file_get_contents('config/players.json');
 
-$players = $config['players']['number']; //pull name
+// decode json to associative array
+$json_arr = json_decode($data, true);
+
+// load config json
+$config = file_get_contents('config/config.json');
+
+// decode json to associative array
+$json_arr2 = json_decode($config, true);
+
+// set player amount
+$players = $json_arr2[0]['Amount'];
 
 global $season; //set season to be global
 $season = $argv[1]; //pull our season name from the command line
@@ -15,7 +26,7 @@ while ($count < $players)
   global $num; //set num
   global $count; //set count
   global $user; //set user
-  $user = $config['player' . $num . '']['name']; //pull name
+  $user = $json_arr[$count]['Name']; //pull name
 
   //set counts for loop
   $count = $count+1;
