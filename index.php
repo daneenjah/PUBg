@@ -6,7 +6,7 @@
 </head>
 <body>
   <center>
-    <form method="get" action="playerstats.php" target ="_blank">
+    <form method="get" action="playerstats.php" target="_blank">
       <input type="text" name="name">&nbsp;<input type="submit" name="query" class="button" value="Search"/>
     </form>
 <br />
@@ -96,7 +96,7 @@ function submitall() {
        <th class="tg2" colspan="2">
          <input type="hidden" id="mode" name="mode" value = <?php echo $mode; ?> >
 <?php
-include('season_select.php')
+include('season_select.php');
 ?>
             <select name="season" id="season" onchange="update.submit()" class="select">
                 <option value=<?php echo $season1; echo $selected1;?>>Current Season</option>
