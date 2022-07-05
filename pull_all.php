@@ -51,7 +51,15 @@ function getSeason(){
 
   $myFile = "data/".$user."/".$user."_".$season.".json"; //set up our file name
 
-  include('config/info.php'); //pull the key/platform information
+  // load config json
+  $config = file_get_contents('config/config.json');
+
+  // decode json to associative array
+  $json_arr2 = json_decode($config, true);
+
+  // set platform and key
+  $platform = $json_arr2[1]['Amount'];
+  $key = $json_arr2[2]['Amount'];
 
   //set the headers required to authenticate
   $headers = array(

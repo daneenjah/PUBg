@@ -1,8 +1,8 @@
 <?php
+date_default_timezone_set('UTC');
+
 $lines = file_get_contents($myFile); //file in to an array
 $data = json_decode($lines, true); //decode the json
-
-include('config/info.php'); //include the config file for timezone
 
 //if the mode isn't set, lets set it to fpp squad and set our colors per mode
 if ($mode == "") {
@@ -164,7 +164,7 @@ if ($adrr >= 800) {
 
 echo "<tr>";
 echo "\n";
-echo "  <th class=tg1 colspan=2><center><font color=545454 size=2><b>" . date ("M d H:i:s", filemtime($myFile)) . "" . $timezone . "</b></font></center>";
+echo "  <th class=tg1 colspan=2><center><font color=545454 size=2><b>" . date ("M d H:i", filemtime($myFile)) . "</b></font></center>";
 
 echo "\n";
 echo "</tr>";
