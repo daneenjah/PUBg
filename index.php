@@ -128,12 +128,12 @@ include('season_select.php');
 </form>
 
 <form method=post>
-  <input type=hidden name=season value=<?php echo  $season ?> />
-  <input type=submit name=submitall class=button value="Update All">
+    <input type=hidden name=season value=<?php echo  $season ?> />
+    <input type=submit name=submitall class=button value="Update All">
 </form>
 
 <table>
-  <tr>
+        <tr>
 <?php
 include('players.php');
 ?>
@@ -152,19 +152,15 @@ if ($mode == "squad") {
 if ($squads == "yes") {
     echo "<table class=tg>";
     echo "\n";
-    echo "  <tr>";
+    echo "    <tr>";
     echo "\n";
-    echo "    <td class=tg1 colspan=2>";
+    echo "        <td class=tg1 colspan=2>";
     echo "\n";
-    echo "     <center>";
+    echo "            <center><b>Squads Overall</b></center>";
     echo "\n";
-    echo "      <b>Squads Overall</b>";
+    echo "        </td>";
     echo "\n";
-    echo "     </center>";
-    echo "\n";
-    echo "    </td>";
-    echo "\n";
-    echo "   </tr>";
+    echo "    </tr>";
     echo "\n";
     echo "\n";
     include 'overall.php';//pull the overall stats script
