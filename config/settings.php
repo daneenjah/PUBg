@@ -64,7 +64,7 @@ if(array_key_exists('submitplayer', $_POST)) {
 function submitplayer() {
 $playersn = $_POST['players'];//pull the number of players from the form
 $platformn = $_POST['platform'];//pull the platform from the form
-$api = $_POST['api'];//pull the key from the form
+$apin = $_POST['api'];//pull the key from the form
 
 // load config json
 $config = file_get_contents('config.json');
@@ -118,6 +118,15 @@ foreach ($json_arr as $key => $value) {
 file_put_contents('config.json', json_encode($json_arr));
 }
 
+// load config json
+$config = file_get_contents('config.json');
+
+// decode json to associative array
+$json_arr2 = json_decode($config, true);
+
+// set api
+$api = $json_arr2[2]['Amount'];
+
 // check to see if what's in the config.json matches what the form sent
 if ($apin !== $api) {
 
@@ -130,7 +139,7 @@ $json_arr = json_decode($data, true);
 // setup our json to input our platform into the config.json
 foreach ($json_arr as $key => $value) {
     if ($value['Code'] == 'Key') {
-        $json_arr[$key]['Amount'] = $api;
+        $json_arr[$key]['Amount'] = $apin;
     }
 }
 
