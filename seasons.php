@@ -92,7 +92,7 @@ fclose($nfile);
 
 //look for console in the text file and delete it as we only want the PC seaosons
 
-$rows = file("data/seasons2.txt");    
+$rows = file("data/seasons2.txt");
 $blacklist = "console";
 
 foreach($rows as $key => $row) {
