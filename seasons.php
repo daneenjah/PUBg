@@ -1,43 +1,43 @@
 <?php
 //function to pull the seasons information
 function getSeasons(){
-  $myFile = "data/seasons.json"; //set up our file name
+    $myFile = "data/seasons.json"; //set up our file name
 
-  include('config/info.php'); //pull the key/platform information
+    include('config/info.php'); //pull the key/platform information
 
-  //set the headers required to authenticate
-  $headers = array(
-       'Authorization: Bearer ' .$key.'',
-       'Accept: application/vnd.api+json'
-  );
+    //set the headers required to authenticate
+    $headers = array(
+        'Authorization: Bearer ' .$key.'',
+        'Accept: application/vnd.api+json'
+    );
 
-  //set the filepath and curl
-  $fp = fopen($myFile, "w+");
-  $ch = curl_init();
+    //set the filepath and curl
+    $fp = fopen($myFile, "w+");
+    $ch = curl_init();
 
-  //setup our URL for curl
-  curl_setopt($ch, CURLOPT_URL,"https://api.pubg.com/shards/$platform/seasons");
-  //set a timeout, because PUBg API can hang randomly
-  curl_setopt($ch, CURLOPT_TIMEOUT, 4);
-  //set our headers
-  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-  //return if it failed or not, used later in the loop
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-  //set what we're doing
-  curl_setopt($ch, CURLOPT_FILE, $fp);
-  //execute it
-  $store = curl_exec ($ch);
+    //setup our URL for curl
+    curl_setopt($ch, CURLOPT_URL,"https://api.pubg.com/shards/$platform/seasons");
+    //set a timeout, because PUBg API can hang randomly
+    curl_setopt($ch, CURLOPT_TIMEOUT, 4);
+    //set our headers
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    //return if it failed or not, used later in the loop
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //set what we're doing
+    curl_setopt($ch, CURLOPT_FILE, $fp);
+    //execute it
+    $store = curl_exec ($ch);
 
-  //some fallback in case the pull fails
-  $retry = 0;
-  while(curl_errno($ch) == 28 && $retry < 5){
-      $store = curl_exec($ch);
-      $retry++;
-  }
+    //some fallback in case the pull fails
+    $retry = 0;
+    while(curl_errno($ch) == 28 && $retry < 5){
+        $store = curl_exec($ch);
+        $retry++;
+    }
 
-  //tidy up
-  curl_close ($ch);
-  fclose($fp);
+    //tidy up
+    curl_close ($ch);
+    fclose($fp);
 }
 
 //run the function
@@ -67,12 +67,12 @@ $seasons = $total;//set how many seasons there are total
 $i = 0;
 while ($i++ < $seasons)
 {
-${"season$i"} = $data["data"][$count]["id"];
-$file = fopen('data/seasons.txt', 'a+');
-fwrite($file, $data["data"][$count]["id"]);
-fwrite($file, "\n");
-fclose($file);
-$count = $count+1;
+    ${"season$i"} = $data["data"][$count]["id"];
+    $file = fopen('data/seasons.txt', 'a+');
+    fwrite($file, $data["data"][$count]["id"]);
+    fwrite($file, "\n");
+    fclose($file);
+    $count = $count+1;
 }
 
 //make the seasons2.txt file
@@ -85,9 +85,9 @@ $file = file('data/seasons.txt');
 $read_rev = array_reverse($file);
 $count=0;
 foreach ($read_rev as $dis_line) {
-$nfile = fopen('data/seasons2.txt', 'a+');
-fwrite($nfile, $dis_line);
-fclose($nfile);
+    $nfile = fopen('data/seasons2.txt', 'a+');
+    fwrite($nfile, $dis_line);
+    fclose($nfile);
 }
 
 //look for console in the text file and delete it as we only want the PC seaosons

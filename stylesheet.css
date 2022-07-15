@@ -3,91 +3,91 @@ body {
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .tg td {
-  border-color:black;
-  border-style:solid;
-  border-width:1px;
-  font-family:Arial, sans-serif;
-  font-size:14px;
-  overflow:hidden;
-  padding:10px 5px;
-  word-break:normal;
+    border-color:black;
+    border-style:solid;
+    border-width:1px;
+    font-family:Arial, sans-serif;
+    font-size:14px;
+    overflow:hidden;
+    padding:10px 5px;
+    word-break:normal;
 }
 
 .tg th {
-  border-color:black;
-  border-style:solid;
-  border-width:1px;
-  font-family:Arial, sans-serif;
-  font-size:14px;
-  font-weight:normal;
-  overflow:hidden;
-  padding:10px 5px;
-  word-break:normal;
+    border-color:black;
+    border-style:solid;
+    border-width:1px;
+    font-family:Arial, sans-serif;
+    font-size:14px;
+    font-weight:normal;
+    overflow:hidden;
+    padding:10px 5px;
+    word-break:normal;
 }
 
 .tg .tg1 {
-  background-color:#121212;
-  border-color:#282828;
-  color:#dedede;
-  text-align:left;
-  vertical-align:top;
+    background-color:#121212;
+    border-color:#282828;
+    color:#dedede;
+    text-align:left;
+    vertical-align:top;
 }
 
 .tg .tg2 {
-  background-color:#121212;
-  border:none;
-  color:#dedede;
-  text-align:left;
-  vertical-align:top;
+    background-color:#121212;
+    border:none;
+    color:#dedede;
+    text-align:left;
+    vertical-align:top;
 }
 
 img {
-  border: 5px solid #545454;
+    border: 5px solid #545454;
 }
 
 input, textarea {
-  background-color: #545454;
-  color: #282828;
-  border-color: #282828;
+    background-color: #545454;
+    color: #282828;
+    border-color: #282828;
 }
 
 .button {
-	box-shadow:inset 0px 0px 0px 0px #545454;
-	background-color:#282828;
-	border-radius:6px;
-	border:1px solid #545454;
-	display:inline-block;
-	cursor:pointer;
-	color:#666666;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	text-decoration:none;
+    box-shadow:inset 0px 0px 0px 0px #545454;
+    background-color:#282828;
+    border-radius:6px;
+    border:1px solid #545454;
+    display:inline-block;
+    cursor:pointer;
+    color:#666666;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    text-decoration:none;
 }
 
 .button:hover {
-	background-color:#545454;
+    background-color:#545454;
 }
 
 .button:active {
-	position:relative;
-	top:1px;
+    position:relative;
+    top:1px;
 }
 
 .select {
-	box-shadow:inset 0px 0px 0px 0px #545454;
-	background-color:#282828;
-	border-radius:6px;
-	border:1px solid #545454;
-	display:inline-block;
-	cursor:pointer;
-	color:#666666;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	text-decoration:none;
+    box-shadow:inset 0px 0px 0px 0px #545454;
+    background-color:#282828;
+    border-radius:6px;
+    border:1px solid #545454;
+    display:inline-block;
+    cursor:pointer;
+    color:#666666;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    text-decoration:none;
 }

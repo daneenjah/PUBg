@@ -21,19 +21,19 @@ $selected10 = "";
 
 //set out selected state for currently selected season
 if ($platform == "") {
-  $selected1 = " selected=selected";
+    $selected1 = " selected=selected";
 } elseif ($platform == stadia) {
-  $selected1 = " selected=selected";
+    $selected1 = " selected=selected";
 } elseif ($platform == stadia) {
-  $selected2 = " selected=selected";
+    $selected2 = " selected=selected";
 } elseif ($platform == steam) {
-  $selected3 = " selected=selected";
+    $selected3 = " selected=selected";
 } elseif ($platform == tournament) {
-  $selected4 = " selected=selected";
+    $selected4 = " selected=selected";
 } elseif ($platform == psn) {
-  $selected5 = " selected=selected";
+    $selected5 = " selected=selected";
 } elseif ($platform == xbox) {
-  $selected6 = " selected=selected";
+    $selected6 = " selected=selected";
 }
 
 ?>

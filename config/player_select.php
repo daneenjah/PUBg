@@ -21,27 +21,27 @@ $selected10 = "";
 
 //set out selected state for currently selected season
 if ($players == "") {
-  $selected1 = " selected=selected";
+    $selected1 = " selected=selected";
 } elseif ($players == 1) {
-  $selected1 = " selected=selected";
+    $selected1 = " selected=selected";
 } elseif ($players == 2) {
-  $selected2 = " selected=selected";
+    $selected2 = " selected=selected";
 } elseif ($players == 3) {
-  $selected3 = " selected=selected";
+    $selected3 = " selected=selected";
 } elseif ($players == 4) {
-  $selected4 = " selected=selected";
+    $selected4 = " selected=selected";
 } elseif ($players == 5) {
-  $selected5 = " selected=selected";
+    $selected5 = " selected=selected";
 } elseif ($players == 6) {
-  $selected6 = " selected=selected";
+    $selected6 = " selected=selected";
 } elseif ($players == 7) {
-  $selected7 = " selected=selected";
+    $selected7 = " selected=selected";
 } elseif ($players == 8) {
-  $selected8 = " selected=selected";
+    $selected8 = " selected=selected";
 } elseif ($players == 9) {
-  $selected9 = " selected=selected";
+    $selected9 = " selected=selected";
 } elseif ($players == 10) {
-  $selected10 = " selected=selected";
+    $selected10 = " selected=selected";
 }
 
 ?>

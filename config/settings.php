@@ -52,142 +52,142 @@ while ($count < $players)
     echo "\n";
     echo "</table>";
     echo "<br> \n";
-$count = $count+1;
+    $count = $count+1;
 }
 
 // an array to be called by the player update button
 if(array_key_exists('submitplayer', $_POST)) {
-  submitplayer();
+    submitplayer();
 }
 
 // setup the update function
 function submitplayer() {
-$playersn = $_POST['players'];//pull the number of players from the form
-$platformn = $_POST['platform'];//pull the platform from the form
-$apin = $_POST['api'];//pull the key from the form
+    $playersn = $_POST['players'];//pull the number of players from the form
+    $platformn = $_POST['platform'];//pull the platform from the form
+    $apin = $_POST['api'];//pull the key from the form
 
-// load config json
-$config = file_get_contents('config.json');
+    // load config json
+    $config = file_get_contents('config.json');
 
-// decode json to associative array
-$json_arr = json_decode($config, true);
+    // decode json to associative array
+    $json_arr = json_decode($config, true);
 
-// set the players
-$players = $json_arr[0]['Amount'];
+    // set the players
+    $players = $json_arr[0]['Amount'];
 
-// set the platform
-$platform = $json_arr[1]['Amount'];
+    // set the platform
+    $platform = $json_arr[1]['Amount'];
 
-// check to see if what's in the config.json matches what the form sent
-if ($playersn !== $players) {
+    // check to see if what's in the config.json matches what the form sent
+    if ($playersn !== $players) {
 
-// read file
-$data = file_get_contents('config.json');
+        // read file
+        $data = file_get_contents('config.json');
 
-// decode json to array
-$json_arr = json_decode($data, true);
+        // decode json to array
+        $json_arr = json_decode($data, true);
 
-// setup our json to input our player count into the config.json
-foreach ($json_arr as $key => $value) {
-    if ($value['Code'] == 'Players') {
-        $json_arr[$key]['Amount'] = $playersn;
+        // setup our json to input our player count into the config.json
+        foreach ($json_arr as $key => $value) {
+            if ($value['Code'] == 'Players') {
+                $json_arr[$key]['Amount'] = $playersn;
+            }
+        }
+
+        // encode array to json and save to file
+        file_put_contents('config.json', json_encode($json_arr));
     }
-}
 
-// encode array to json and save to file
-file_put_contents('config.json', json_encode($json_arr));
-}
+    // check to see if what's in the config.json matches what the form sent
+    if ($platformn !== $platform) {
 
-// check to see if what's in the config.json matches what the form sent
-if ($platformn !== $platform) {
+        // read file
+        $data = file_get_contents('config.json');
 
-// read file
-$data = file_get_contents('config.json');
+        // decode json to array
+        $json_arr = json_decode($data, true);
 
-// decode json to array
-$json_arr = json_decode($data, true);
+        // setup our json to input our platform into the config.json
+        foreach ($json_arr as $key => $value) {
+            if ($value['Code'] == 'Platform') {
+                $json_arr[$key]['Amount'] = $platformn;
+            }
+        }
 
-// setup our json to input our platform into the config.json
-foreach ($json_arr as $key => $value) {
-    if ($value['Code'] == 'Platform') {
-        $json_arr[$key]['Amount'] = $platformn;
+        // encode array to json and save to file
+        file_put_contents('config.json', json_encode($json_arr));
     }
-}
 
-// encode array to json and save to file
-file_put_contents('config.json', json_encode($json_arr));
-}
+    // load config json
+    $config = file_get_contents('config.json');
 
-// load config json
-$config = file_get_contents('config.json');
+    // decode json to associative array
+    $json_arr2 = json_decode($config, true);
 
-// decode json to associative array
-$json_arr2 = json_decode($config, true);
+    // set api
+    $api = $json_arr2[2]['Amount'];
 
-// set api
-$api = $json_arr2[2]['Amount'];
+    // check to see if what's in the config.json matches what the form sent
+    if ($apin !== $api) {
 
-// check to see if what's in the config.json matches what the form sent
-if ($apin !== $api) {
+        // read file
+        $data = file_get_contents('config.json');
 
-// read file
-$data = file_get_contents('config.json');
+        // decode json to array
+        $json_arr = json_decode($data, true);
 
-// decode json to array
-$json_arr = json_decode($data, true);
+        // setup our json to input our platform into the config.json
+        foreach ($json_arr as $key => $value) {
+            if ($value['Code'] == 'Key') {
+                $json_arr[$key]['Amount'] = $apin;
+            }
+        }
 
-// setup our json to input our platform into the config.json
-foreach ($json_arr as $key => $value) {
-    if ($value['Code'] == 'Key') {
-        $json_arr[$key]['Amount'] = $apin;
+        // encode array to json and save to file
+        file_put_contents('config.json', json_encode($json_arr));
     }
-}
 
-// encode array to json and save to file
-file_put_contents('config.json', json_encode($json_arr));
-}
+    // setup our json decode for players.json
+    $data = file_get_contents('players.json');
+    $json_arr = json_decode($data, true);
 
-// setup our json decode for players.json
-$data = file_get_contents('players.json');
-$json_arr = json_decode($data, true);
+    // set our counter for the loop
+    $countw = 0;
 
-// set our counter for the loop
-$countw = 0;
+    //write player names to json
+    while ($countw < $players)
+    {
+        $name = $_POST["$countw"];
+        foreach ($json_arr as $key => $value) {
+            if ($value['Code'] == $countw) {
+                $json_arr[$key]['Name'] = $name;
+            }
+        }
 
-//write player names to json
-while ($countw < $players)
-{
-$name = $_POST["$countw"];
-foreach ($json_arr as $key => $value) {
-    if ($value['Code'] == $countw) {
-        $json_arr[$key]['Name'] = $name;
+        $countw = $countw+1;
+
     }
-}
-
-$countw = $countw+1;
-
-}
 
 
-$countwi = 0;
+    $countwi = 0;
 
-// loop to write the player names
-while ($countwi < $players)
-{
-$image = $_POST["image-$countwi"];
-foreach ($json_arr as $key => $value) {
-    if ($value['Code'] == $countwi) {
-        $json_arr[$key]['Image'] = $image;
+    // loop to write the player names
+    while ($countwi < $players)
+    {
+        $image = $_POST["image-$countwi"];
+        foreach ($json_arr as $key => $value) {
+            if ($value['Code'] == $countwi) {
+                $json_arr[$key]['Image'] = $image;
+            }
+        }
+
+        $countwi = $countwi+1;
+
     }
-}
+    // encode array to json and save to file
+    file_put_contents('players.json', json_encode($json_arr));
 
-$countwi = $countwi+1;
-
-}
-// encode array to json and save to file
-file_put_contents('players.json', json_encode($json_arr));
-
-header("Refresh:0");
+    header("Refresh:0");
 }
 
 // this file sets the form below to show the correctly selected number
