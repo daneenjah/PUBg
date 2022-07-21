@@ -1,9 +1,9 @@
 <?php
 //function to pull the seasons information
 function getSeasons(){
-    $myFile = "data/seasons.json"; //set up our file name
+    $myFile = "data/seasons.json";//set up our file name
 
-    include('config/info.php'); //pull the key/platform information
+    include('config/info.php');//pull the key/platform information
 
     //set the headers required to authenticate
     $headers = array(
@@ -91,7 +91,6 @@ foreach ($read_rev as $dis_line) {
 }
 
 //look for console in the text file and delete it as we only want the PC seaosons
-
 $rows = file("data/seasons2.txt");
 $blacklist = "console";
 

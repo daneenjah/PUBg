@@ -1,20 +1,20 @@
 <?php
-// load players json
+//load players json
 $data = file_get_contents('config/players.json');
 
-// decode json to associative array
+//decode json to associative array
 $json_arr = json_decode($data, true);
 
-// load config json
+//load config json
 $config = file_get_contents('config/config.json');
 
-// decode json to associative array
+//decode json to associative array
 $json_arr2 = json_decode($config, true);
 
-// set player amount
+//set player amount
 $players = $json_arr2[0]['Amount'];
 
-// set a counter for a the loop
+//set a counter for a the loop
 $count = 0;
 
 //set up a loop to run based on how many players are defined
@@ -46,13 +46,15 @@ while ($count < $players)
     echo "\n";
     echo "  <br /><br />";
     echo "\n";
-    echo "        <form method=post>";
+    echo "        <form action=\"pull_seasonstats.php\">";
     echo "\n";
-    echo "            <input type=hidden name=name value=" . $name . " />";
+    echo "            <input type=hidden name=page value=" . $page . " />";
+    echo "\n";
+    echo "            <input type=hidden name=user value=" . $name . " />";
     echo "\n";
     echo "            <input type=hidden name=season value=" . $season . " />";
     echo "\n";
-    echo "            <input type=submit name=submit class=button value=Update></form>";
+    echo "            <input type=submit class=button value=Update></form>";
     echo "\n";
     echo "          </div>";
     echo "\n";

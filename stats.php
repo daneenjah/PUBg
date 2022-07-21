@@ -1,8 +1,8 @@
 <?php
 date_default_timezone_set('UTC');
 
-$lines = file_get_contents($myFile); //file in to an array
-$data = json_decode($lines, true); //decode the json
+$lines = file_get_contents($myFile);//file in to an array
+$data = json_decode($lines, true);//decode the json
 
 //if the mode isn't set, lets set it to fpp squad and set our colors per mode
 if ($mode == "") {

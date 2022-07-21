@@ -37,8 +37,8 @@ while ($countr < $seasonsr)
 
     //check if the file exists
     if (file_exists($myFiler)) {
-        $lines = file_get_contents($myFiler); //file in to an array
-        $data = json_decode($lines, true); //decode the json
+        $lines = file_get_contents($myFiler);//file in to an array
+        $data = json_decode($lines, true);//decode the json
 
         //pull our time survived and add it to the the total time
         if (isset($data["data"]["attributes"]["gameModeStats"][$mode]["timeSurvived"])) {

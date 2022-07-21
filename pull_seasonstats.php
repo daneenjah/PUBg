@@ -1,21 +1,23 @@
 <?php
-global $user; //set user to be global
-$user = $argv[1]; //pull our user name from the command line
+global $user;//set user to be global
+$user = $_GET['user'];//set user from url
 
-global $season; //set season to be global
-$season = $argv[2]; //pull our season name from the command line
+global $season;//set season to be global
+$season = $_GET['season'];//set season from url
 
-$myFile = "data/".$user."/".$user.".json"; //set up our file name
+$page = $_GET['page'];//set page from url
+
+$myFile = "data/".$user."/".$user.".json";//set up our file name
 //see if the file exists, if not make the directory
 if (file_exists($myFile)) {
 } else {
-    mkdir("data/$user"); //make our directory for the player files
+    mkdir("data/$user");//make our directory for the player files
 }
 
 //function to do the API pull
 function getID(){
-    global $store; //set store to global for error checking
-    global $user; //set user to global for other functions
+    global $store;//set store to global for error checking
+    global $user;//set user to global for other functions
     $myFile = "data/".$user."/".$user.".json"; //set up our file name
 
     // load config json
@@ -74,17 +76,17 @@ getID();
 
 //function to do the API pull
 function getSeason(){
-    global $store; //set store to global for error checking
-    global $user; //set user
-    global $season; //set season
+    global $store;//set store to global for error checking
+    global $user;//set user
+    global $season;//set season
 
     //pull the account id
-    $myFile = "data/".$user."/".$user.".json"; //set our file name
-    $lines = file_get_contents($myFile); //file in to an array
-    $data = json_decode($lines, true); //decode the json
-    $account = $data["data"][0]["id"]; //set our account id
+    $myFile = "data/".$user."/".$user.".json";//set our file name
+    $lines = file_get_contents($myFile);//file in to an array
+    $data = json_decode($lines, true);//decode the json
+    $account = $data["data"][0]["id"];//set our account id
 
-    $myFile = "data/".$user."/".$user."_".$season.".json"; //set up our file name
+    $myFile = "data/".$user."/".$user."_".$season.".json";//set up our file name
 
     // load config json
     $config = file_get_contents('config/config.json');
@@ -133,4 +135,7 @@ function getSeason(){
 
 //run the function
 getSeason();
+
+header("location:" .$page);
+
 ?>
