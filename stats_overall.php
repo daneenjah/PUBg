@@ -41,10 +41,19 @@ while ($countr < $seasonsr)
         $data = json_decode($lines, true); //decode the json
 
         //pull our time survived and add it to the the total time
+        if (isset($data["data"]["attributes"]["gameModeStats"][$mode]["timeSurvived"])) {
         $timeSurvivedr = $data["data"]["attributes"]["gameModeStats"][$mode]["timeSurvived"];
+        } else {
+            $timeSurvivedr = 0;
+        }
         $time = $time + $timeSurvivedr;
 
+        //pull our rounds played and add it up for total matches
+        if (isset($data["data"]["attributes"]["gameModeStats"][$mode]["roundsPlayed"])) {
         $matchesr = $data["data"]["attributes"]["gameModeStats"][$mode]["roundsPlayed"];
+        } else {
+            $matchesr = 0;
+        }
         $matchesrr = $matchesrr + $matchesr;
     } else {
         $countr = $seasonsr;//if the file doesn't exist, we'll close the loop
