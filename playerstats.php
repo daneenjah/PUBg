@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php
-
 //set variable to prevent errors
 $fppselected = "";
 $tppselected = "";
@@ -26,6 +25,8 @@ if (isset($_POST['tpp'])) {
 
 if (isset($_POST['season'])) {
     $season = $_POST['season'];
+} elseif (isset($_GET['season'])) {
+    $season = $_GET['season'];
 } else {
     $seasons = "data/seasons.txt";
     $lines = file($seasons);//file in to an array
@@ -49,18 +50,7 @@ if ($tpp == "false") {
 $myFile = "data/" . $name. "/". $name . "_" . $season . ".json";//specify the file
 if (file_exists($myFile)) {
 } else {
-    shell_exec('php pull_seasonstats.php '.$name.' '.$season.'');
-}
-
-//an array to be called by the update button
-if(array_key_exists('submit', $_POST)) {
-    submit();
-}
-//function to run update stats
-function submit() {
-    $name = $_POST['name'];//pull the name from the form
-    $season = $_POST['season'];//pull the season from the form
-    shell_exec('php pull_seasonstats.php '.$name.' '.$season.'');
+   header("location: pull_seasonstats.php?user=$name&season=$season&page=playerstats.php?name=$name");
 }
 ?>
 <html>
@@ -71,7 +61,7 @@ function submit() {
 <body>
 <center>
     <form method="get" action="playerstats.php" target="_blank">
-    <input type="text" name="name">&nbsp;<input type="submit" name="query" class="button" value="Search"/>   <input class="button" type="button" value="Close" onclick="self.close()">
+    <input type="text" name="name">&nbsp;<input type="submit" name="submit" class="button" value="Search"/>   <input class="button" type="button" value="Close" onclick="self.close()">
     </form>
     <br />
     <table style="height:70px">
@@ -128,10 +118,12 @@ if (file_exists($myFile)) {
     </form>
         </th>
         <th class="tg2" colspan="2">
-            <form method="post">
-                <input type="hidden" name="name" value="<?php echo $name; ?>" />
+            <form action="pull_seasonstats.php">
+                <input type="hidden" name="page" value="playerstats.php?name=<?php echo $name; ?>&season=<?php echo $season; ?>">
+                <input type="hidden" name="user" value="<?php echo $name; ?>" />
                 <input type="hidden" name="season" value="<?php echo $season; ?>" />
-                <input type="submit" name="submit" class="button" value="Update"/></form>
+                <input type="submit" name="submit" class="button" value="Update"/>
+            </form>
         </th>
         </tr>
     </thead>

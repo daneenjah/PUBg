@@ -12,6 +12,9 @@
 <br />
 <?php
 
+// set our page for referral back after stat updates
+$page = "index.php";
+
 //set variable to prevent errors
 $fppselected = "";
 $tppselected = "";
@@ -69,17 +72,6 @@ if(array_key_exists('submit', $_POST)) {
 function submit() {
     $name = $_POST['name'];//pull the name from the form
     $season = $_POST['season'];//pull the season from the form
-    shell_exec('php pull_seasonstats.php '.$name.' '.$season.'');
-}
-
-//an array to be called by the update button
-if(array_key_exists('submitall', $_POST)) {
-    submitall();
-}
-//function to run update all stats
-function submitall() {
-    $season = $_POST['season'];//pull the season from the form
-    shell_exec('php pull_all.php '.$season.'');
 }
 
 ?>
@@ -127,9 +119,10 @@ include('season_select.php');
     </table>
 </form>
 
-<form method=post>
-    <input type=hidden name=season value=<?php echo  $season ?> />
-    <input type=submit name=submitall class=button value="Update All">
+<form action="pull_all.php">
+    <input type="hidden" name="page" value="index.php">
+    <input type="hidden" name="season" value=<?php echo  $season ?> />
+    <input type="submit" name="submit" class="button" value="Update All">
 </form>
 
 <table>

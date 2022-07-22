@@ -15,7 +15,10 @@ $json_arr2 = json_decode($config, true);
 $players = $json_arr2[0]['Amount'];
 
 global $season;//set season to be global
-$season = $argv[1];//pull our season name from the command line
+//$season = $argv[1];//pull our season name from the command line
+$season = $_GET['season'];//set season from url
+
+$page = $_GET['page'];//set page from url
 
 //set our variables for the loop
 $num = 1;
@@ -95,4 +98,6 @@ function getSeason(){
     curl_close ($ch);
     fclose($fp);
 }
+
+header("location:" .$page);
 ?>
