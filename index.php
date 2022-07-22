@@ -12,7 +12,7 @@
 <br />
 <?php
 
-// set our page for referral back after stat updates
+//set our page for referral back after stat updates
 $page = "index.php";
 
 //set variable to prevent errors
