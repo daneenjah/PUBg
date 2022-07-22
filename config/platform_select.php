@@ -1,8 +1,8 @@
 <?php
-// load config json
+//load config json
 $config = file_get_contents('config.json');
 
-// decode json to associative array
+//decode json to associative array
 $json_arr2 = json_decode($config, true);
 
 $platform = $json_arr2[1]['Amount'];

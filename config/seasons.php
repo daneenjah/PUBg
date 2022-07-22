@@ -1,7 +1,7 @@
 <?php
 $page = $_GET['page'];//set page from url
 
-// Password protect this content
+//password protect this content
 require_once('protect.php');
 
 //function to pull the seasons information
@@ -120,5 +120,7 @@ file_put_contents("../data/seasons2.txt", implode( $rows));
 copy("../data/seasons2.txt","../data/seasons.txt");
 unlink("../data/seasons2.txt");
 
+//send us back to the previous page
 header("location:" .$page);
+exit();
 ?>

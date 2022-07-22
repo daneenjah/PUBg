@@ -136,6 +136,7 @@ function getSeason(){
 //run the function
 getSeason();
 
+//send us back to the previous page
 header("location:" .$page);
 exit();
 ?>

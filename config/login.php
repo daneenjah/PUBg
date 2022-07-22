@@ -1,12 +1,12 @@
 <?php
-/* Your password */
+//your password
 $password = 'yourpassword';
 
-/* Redirects here after login */
+//redirects here after login
 $redirect_after_login = 'settings.php';
 
-/* Will not ask password again for */
-$remember_password = strtotime('+30 days'); // 30 days
+//will not ask password again for
+$remember_password = strtotime('+30 days');//30 days
 
 if (isset($_POST['password']) && $_POST['password'] == $password) {
     setcookie("password", $password, $remember_password);
@@ -18,6 +18,7 @@ if (isset($_POST['password']) && $_POST['password'] == $password) {
 <html>
 <head>
     <title>Password protected</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
 </head>
 <body>
     <div style="text-align:center;margin-top:50px;">

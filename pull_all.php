@@ -99,6 +99,7 @@ function getSeason(){
     fclose($fp);
 }
 
+//send us back to previous page
 header("location:" .$page);
 exit();
 ?>
