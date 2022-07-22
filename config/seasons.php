@@ -1,10 +1,15 @@
 <?php
+$page = $_GET['page'];//set page from url
+
+// Password protect this content
+require_once('protect.php');
+
 //function to pull the seasons information
 function getSeasons(){
-    $myFile = "data/seasons.json";//set up our file name
+    $myFile = "../data/seasons.json";//set up our file name
 
     // load config json
-    $config = file_get_contents('config/config.json');
+    $config = file_get_contents('config.json');
 
     // decode json to associative array
     $json_arr = json_decode($config, true);
@@ -51,14 +56,14 @@ function getSeasons(){
 //run the function
 getSeasons();
 
-$myFile = "data/seasons.json";//set the file path
+$myFile = "../data/seasons.json";//set the file path
 $lines = file_get_contents($myFile);//file in to an array
 
 $data = json_decode($lines, true);//decode the json
 
 //make the seasons.txt file
-$file = fopen('data/seasons.txt', 'w');
-fwrite($file);
+$file = fopen('../data/seasons.txt', 'w');
+fwrite($file, "");
 fclose($file);
 
 //count how many seasons there are
@@ -73,10 +78,11 @@ $seasons = $total;//set how many seasons there are total
 
 //run a loop writing the seasons to the text file
 $i = 0;
+$count = 0;
 while ($i++ < $seasons)
 {
     ${"season$i"} = $data["data"][$count]["id"];
-    $file = fopen('data/seasons.txt', 'a+');
+    $file = fopen('../data/seasons.txt', 'a+');
     fwrite($file, $data["data"][$count]["id"]);
     fwrite($file, "\n");
     fclose($file);
@@ -84,22 +90,22 @@ while ($i++ < $seasons)
 }
 
 //make the seasons2.txt file
-$file = fopen('data/seasons2.txt', 'w');
-fwrite($file);
+$file = fopen('../data/seasons2.txt', 'w');
+fwrite($file, "");
 fclose($file);
 
 //reverse the lines, PUBg sends API with newest at the bottom of JSON
-$file = file('data/seasons.txt');
+$file = file('../data/seasons.txt');
 $read_rev = array_reverse($file);
 $count=0;
 foreach ($read_rev as $dis_line) {
-    $nfile = fopen('data/seasons2.txt', 'a+');
+    $nfile = fopen('../data/seasons2.txt', 'a+');
     fwrite($nfile, $dis_line);
     fclose($nfile);
 }
 
 //look for console in the text file and delete it as we only want the PC seaosons
-$rows = file("data/seasons2.txt");
+$rows = file("../data/seasons2.txt");
 $blacklist = "console";
 
 foreach($rows as $key => $row) {
@@ -108,9 +114,11 @@ foreach($rows as $key => $row) {
     }
 }
 
-file_put_contents("data/seasons2.txt", implode( $rows));
+file_put_contents("../data/seasons2.txt", implode( $rows));
 
 //copy seasons2.txt that was created to seasons.txt and delete the others
-copy("data/seasons2.txt","data/seasons.txt");
-unlink("data/seasons2.txt");
+copy("../data/seasons2.txt","../data/seasons.txt");
+unlink("../data/seasons2.txt");
+
+header("location:" .$page);
 ?>

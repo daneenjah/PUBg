@@ -22,17 +22,17 @@ $selected10 = "";
 //set out selected state for currently selected season
 if ($platform == "") {
     $selected1 = " selected=selected";
-} elseif ($platform == stadia) {
+} elseif ($platform == "kakao") {
     $selected1 = " selected=selected";
-} elseif ($platform == stadia) {
+} elseif ($platform == "stadia") {
     $selected2 = " selected=selected";
-} elseif ($platform == steam) {
+} elseif ($platform == "steam") {
     $selected3 = " selected=selected";
-} elseif ($platform == tournament) {
+} elseif ($platform == "tournament") {
     $selected4 = " selected=selected";
-} elseif ($platform == psn) {
+} elseif ($platform == "psn") {
     $selected5 = " selected=selected";
-} elseif ($platform == xbox) {
+} elseif ($platform == "xbox") {
     $selected6 = " selected=selected";
 }
 

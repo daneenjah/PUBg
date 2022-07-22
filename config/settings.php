@@ -227,9 +227,19 @@ include('platform_select.php');
 <br><br>
 <label for="key">Key:</label>
 <br>
-<textarea name=api rows=3 cols=120 value=<?php echo $key;?>><?php echo $api; ?></textarea>
+<textarea name="api" rows="3" cols="120"><?php echo $api; ?></textarea>
 <br><br>
-<input type=submit name=submitplayer class=button value="Update">
+<input type="submit" name="submitplayer" class="button" value="Update">
+</form>
+<br>
+<form action="seasons.php">
+    <input type="hidden" name="page" value="settings.php">
+    <input type="submit" name="submit" class="button" value="Update Seasons">
+</form>
+<br>
+<form action="cleanup.php">
+    <input type="hidden" name="page" value="settings.php">
+    <input type="submit" name="submit" class="button" value="Cleanup Data">
 </form>
 </body>
 </html>

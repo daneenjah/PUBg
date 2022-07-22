@@ -1,3 +1,11 @@
+division.bro.official.pc-2018-18
+division.bro.official.pc-2018-17
+division.bro.official.pc-2018-16
+division.bro.official.pc-2018-15
+division.bro.official.pc-2018-14
+division.bro.official.pc-2018-13
+division.bro.official.pc-2018-12
+division.bro.official.pc-2018-11
 division.bro.official.pc-2018-10
 division.bro.official.pc-2018-09
 division.bro.official.pc-2018-08
@@ -26,4 +34,4 @@ division.bro.official.2017-pre4
 division.bro.official.2017-pre3
 division.bro.official.2017-pre2
 division.bro.official.2017-pre1
-
+division.bro.official.2017-beta

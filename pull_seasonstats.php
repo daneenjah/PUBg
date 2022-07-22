@@ -137,5 +137,5 @@ function getSeason(){
 getSeason();
 
 header("location:" .$page);
-
+exit();
 ?>

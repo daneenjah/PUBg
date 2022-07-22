@@ -100,4 +100,5 @@ function getSeason(){
 }
 
 header("location:" .$page);
+exit();
 ?>
