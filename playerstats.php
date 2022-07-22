@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 //set variable to prevent errors
 $fppselected = "";
@@ -50,7 +49,8 @@ if ($tpp == "false") {
 $myFile = "data/" . $name. "/". $name . "_" . $season . ".json";//specify the file
 if (file_exists($myFile)) {
 } else {
-   header("location: pull_seasonstats.php?user=$name&season=$season&page=playerstats.php?name=$name");
+   header("location: pull_seasonstats.php?user=$name&season=$season&page=playerstats.php?name=$name",  true,  301 );
+   exit;
 }
 ?>
 <html>
