@@ -23,6 +23,7 @@ if (isset($_POST['password']) && $_POST['password'] == $password) {
 <body>
     <div style="text-align:center;margin-top:50px;">
         You must enter the password to view this content.
+        <br>
         <form method="POST">
             <input type="text" name="password">
         </form>

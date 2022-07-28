@@ -47,3 +47,19 @@ PUBg's API documentation: https://documentation.pubg.com/en/index.html
 I have opted to keep this JSON file based for now. I haven't had the inclination to add match stats yet, but if I do I'll be migrating to a real database. All player information is kept in /data/<playername> to aid in cleanup.
 
 Clicking on a player's image will open up their stat page.
+
+*Todo*
+
+-Cleanup some of the client side code.
+
+-Cleanup the config page.
+
+-More secure login, at least hash the passwords.
+
+-Change website name via config page.
+
+-Smooth out the config page. It seems to hang and not update properly when on a remote machine.
+
+-Too many API requests notification to the user interface.
+
+-If nothing shows (aka null) automatically do a pull on both overall stats and individual players page.
