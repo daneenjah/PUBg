@@ -23,10 +23,24 @@ $config = file_get_contents('config.json');
 //decode json to associative array
 $json_arr2 = json_decode($config, true);
 
-//set players/platform/api
-$players = $json_arr2[0]['Amount'];
-$platform = $json_arr2[1]['Amount'];
-$api = $json_arr2[2]['Amount'];
+//set players/platform/api use is set in case the form has updated
+if (isset($_POST['players'])) {
+    $players = $_POST['players'];
+} else {
+    $players = $json_arr2[0]['Amount'];
+}
+
+if (isset($_POST['platform'])) {
+    $platform= $_POST['platform'];
+} else {
+    $platform = $json_arr2[1]['Amount'];
+}
+
+if (isset($_POST['api'])) {
+    $api = $_POST['api'];
+} else {
+    $api = $json_arr2[2]['Amount'];
+}
 
 //set a counter for a the loop
 $count = 0;
@@ -168,7 +182,6 @@ function submitplayer() {
 
     }
 
-
     $countwi = 0;
 
     //loop to write the player names
@@ -186,8 +199,6 @@ function submitplayer() {
     }
     //encode array to json and save to file
     file_put_contents('players.json', json_encode($json_arr));
-
-    header("Refresh:0");
 }
 
 //this file sets the form below to show the correctly selected number

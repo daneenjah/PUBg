@@ -59,8 +59,6 @@ Clicking on a player's image will open up their stat page.
 
     -Change website name via config page.
 
-    -Smooth out the config page. It seems to hang and not update properly when on a remote machine.
-
     -Too many API requests notification to the user interface.
 
     -If nothing shows (aka null) automatically do a pull on both overall stats and individual players page.
