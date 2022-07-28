@@ -4,7 +4,7 @@
     <title>Clapp'in Cheeks PUBg Settings</title>
 <link rel="stylesheet" type="text/css" href="../stylesheet.css">
 </head>
-
+<h1 class="h1">PUBg Config Page</h1>
 <form method=post>
 
 <?php
@@ -23,7 +23,7 @@ $config = file_get_contents('config.json');
 //decode json to associative array
 $json_arr2 = json_decode($config, true);
 
-//set players/platform/api use is set in case the form has updated
+//set players/platform/api use isset in case the form has updated since page load
 if (isset($_POST['players'])) {
     $players = $_POST['players'];
 } else {

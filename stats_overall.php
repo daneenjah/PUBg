@@ -68,7 +68,7 @@ $timer = ($time / 60) / 60;//do some math on our time (it's in seconds)
 //echo everything
 echo "<tr>";
 echo "\n";
-echo "  <th class=tg1 colspan=2><center><font color=545454 size=2><b>Total Hrs Alive: " . number_format($timer). "</b></font></center>";
+echo "  <th class=tg3 colspan=2>Total Hrs Alive: " . number_format($timer) ."</th>";
 
 echo "\n";
 echo "</tr>";
@@ -76,7 +76,7 @@ echo "\n";
 
 echo "<tr>";
 echo "\n";
-echo "  <th class=tg1 colspan=2><center><font color=545454 size=2><b>Total Matches: " . number_format($matchesrr) . "</b></font></center>";
+echo "  <th class=tg3 colspan=2>Total Matches: " . number_format($matchesrr) ."</th>";
 
 echo "\n";
 echo "</tr>";
