@@ -1,8 +1,8 @@
 <?php
-$page = $_GET['page'];//set page from url
-
 //password protect this content
 require_once('protect.php');
+
+$page = $_GET['page'];//set page from url
 
 //function to scan and delete everything in the data directory
 $dir = "../data";

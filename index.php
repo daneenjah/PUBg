@@ -132,7 +132,6 @@ include('players.php');
 ?>
     </tr>
 </table>
-
 <?php
 $squads = "no";
 
@@ -155,7 +154,6 @@ if ($squads == "yes") {
     echo "\n";
     echo "    </tr>";
     echo "\n";
-    echo "\n";
     include 'overall.php';//pull the overall stats script
 }
 ?>
@@ -167,7 +165,6 @@ if ($squads == "yes") {
 include 'counter.php';//pull the counter script
 ?>
 </font>
-
 </center>
 </body>
 </html>

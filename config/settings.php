@@ -1,3 +1,7 @@
+<?php
+//password protect this content
+require_once('protect.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +12,6 @@
 <form method=post>
 
 <?php
-//password protect this content
-require_once('protect.php');
-
 //load players json
 $data = file_get_contents('players.json');
 
@@ -54,7 +55,7 @@ while ($count < $players)
     echo "\n";
     echo "    <td class=tg1><input type=text name=" . $count . " value=" . $json_arr[$count]['Name'] . "></td>";
     echo "\n";
-    echo "    <td class=tg1 rowspan=2><img src=" . $json_arr[$count]['Image'] . " width=70 heigh=70></td>";
+    echo "    <td class=tg1 rowspan=2><img src=" . $json_arr[$count]['Image'] . " width=70 height=70></td>";
     echo "\n";
     echo "  </tr>";
     echo "\n";
@@ -223,9 +224,7 @@ include('player_select.php');
 //this file sets the form below to show the correctly selected number
 include('platform_select.php');
 ?>
-
 <br><br>
-
 <label for="platform">Platform:</label>
 <select name="platform" id="platform" class="select">
     <option value="kakao" <?php echo $selected1;?>>kakao</option>

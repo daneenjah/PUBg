@@ -60,28 +60,27 @@ if (file_exists($myFile)) {
 </head>
 <body>
 <center>
-    <form method="get" action="playerstats.php" target="_blank">
-    <input type="text" name="name">&nbsp;<input type="submit" name="submit" class="button" value="Search"/>   <input class="button" type="button" value="Close" onclick="self.close()">
-    </form>
-    <br />
-    <table style="height:70px">
-        <tr colspan="2">
-        <td colspan="2">
-            <font color="#dedede" size="5"><b>
+<form method="get" action="playerstats.php" target="_blank">
+<input type="text" name="name">&nbsp;<input type="submit" name="submit" class="button" value="Search">   <input class="button" type="button" value="Close" onclick="self.close()">
+</form>
+<table style="height:70px">
+<tr colspan="2">
+<td colspan="2">
+    <font color="#dedede" size="5"><b>
 <?php
 $myFile = "data/" . $name. "/". $name . "_" . $season . ".json";//specify the file
 if (file_exists($myFile)) {
-    echo $name;
+echo $name;
 } else {
-    echo $name . " Not Found";
+echo $name . " Not Found";
 }
 ?>
-            </b></font>
-    <br /><br />
+</b></font>
+<br>
 </center>
-        </td>
-        </tr>
-        <tr>
+    </td>
+    </tr>
+    <tr>
 <?php
 include 'season_select.php';
 $myFile = "data/" . $name. "/". $name . "_" . $season . ".json";//specify the file
@@ -90,19 +89,18 @@ if (file_exists($myFile)) {
 }
 ?>
 </table>
-<br />
     <form method="post" name="update" action="playerstats.php?name=<?php echo $name; ?>">
-    <table class="tg2">
+    <table>
     <thead>
         <tr>
-        <th class="tg2" colspan="1">
+        <th colspan="1">
             <form method="post" name="update" action="playerstats.php?name=<?php echo $name; ?>">
                 <select name="tpp" id="tpp" onchange="update.submit()" class="select">
                     <option value = false <?php echo $fppselected; ?>>FPP</option>
                     <option value = true <?php echo $tppselected; ?>>TPP</option>
                 </select>
         </th>
-        <th class="tg2" colspan="2">
+        <th colspan="2">
             <select name="season" id="season" onchange="update.submit()" class="select">
                 <option value=<?php echo $season1; echo $selected1;?>>Current Season</option>
                 <option value=<?php echo $season2; echo $selected2;?>>Previous Season</option>
@@ -115,19 +113,18 @@ if (file_exists($myFile)) {
                 <option value=<?php echo $season9; echo $selected9;?>>Previous Season 7</option>
                 <option value=<?php echo $season10; echo $selected10;?>>Previous Season 8</option>
             </select>
-    </form>
-        </th>
-        <th class="tg2" colspan="2">
-            <form action="pull_seasonstats.php">
-                <input type="hidden" name="page" value="playerstats.php?name=<?php echo $name; ?>&season=<?php echo $season; ?>">
-                <input type="hidden" name="user" value="<?php echo $name; ?>" />
-                <input type="hidden" name="season" value="<?php echo $season; ?>" />
-                <input type="submit" name="submit" class="button" value="Update"/>
             </form>
         </th>
-        </tr>
+        <th colspan="2">
+            <form action="pull_seasonstats.php">
+                <input type="hidden" name="page" value="playerstats.php?name=<?php echo $name; ?>&season=<?php echo $season; ?>">
+                <input type="hidden" name="user" value="<?php echo $name; ?>">
+                <input type="hidden" name="season" value="<?php echo $season; ?>">
+        </th>
     </thead>
     </table>
+                <input type="submit" name="submit" class="button" value="Update">
+            </form>
 <table>
     <tr>
         <td>
@@ -182,8 +179,8 @@ if (file_exists($myFile)) {
 ?>
 
 </table>
-        </td>
-        <td>
+</td>
+<td>
 <table class="tg">
 <?php
 //check if tpp is selected and change mode
@@ -207,9 +204,8 @@ if (file_exists($myFile)) {
 }
 ?>
 </table>
-        </td>
-        </tr>
+</td>
+</tr>
 </table>
-</center>
 </body>
 </html>

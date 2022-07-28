@@ -98,7 +98,6 @@ if ($adr >= 500) {
     $adrc = "#00a1ce";
 }
 
-
 echo "<tr>";
 echo "\n";
 echo "  <th class=tg1><center><font color=" . $kdrc . " size=4><b>KDR: </b>" . number_format((float)$kdr, 2, '.', '') . "</font></center></th>";

@@ -11,51 +11,53 @@ body {
 }
 
 .tg td {
-    border-color:black;
-    border-style:solid;
-    border-width:1px;
-    font-family:Arial, sans-serif;
-    font-size:14px;
-    overflow:hidden;
-    padding:10px 5px;
-    word-break:normal;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
 }
 
 .tg th {
-    border-color:black;
-    border-style:solid;
-    border-width:1px;
-    font-family:Arial, sans-serif;
-    font-size:14px;
-    font-weight:normal;
-    overflow:hidden;
-    padding:10px 5px;
-    word-break:normal;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+    vertical-align: middle;
 }
 
 .tg .tg1 {
-    background-color:#121212;
-    border-color:#282828;
-    color:#dedede;
-    text-align:left;
-    vertical-align:top;
+    background-color: #121212;
+    border-color: #282828;
+    color: #dedede;
+    text-align: left;
+    vertical-align: top;
 }
 
 .tg .tg2 {
-    background-color:#121212;
-    border:none;
-    color:#dedede;
-    text-align:left;
-    vertical-align:top;
+    background-color: #121212;
+    border: none;
+    color: #dedede;
+    text-align: left;
+    vertical-align: middle;
+    align-items: center;
 }
 
 .tg3 {
-    background-color:#121212;
-    border-color:#282828;
-    color:#dedede;
+    background-color: #121212;
+    border-color: #282828;
+    color: #dedede;
     font-weight: 200;
-    text-align:center;
-    vertical-align:top;
+    text-align: center;
+    vertical-align: top;
 }
 
 img {
@@ -69,38 +71,38 @@ input, textarea {
 }
 
 .button {
-    box-shadow:inset 0px 0px 0px 0px #545454;
-    background-color:#282828;
-    border-radius:6px;
-    border:1px solid #545454;
-    display:inline-block;
-    cursor:pointer;
-    color:#dedede;
-    font-family:Arial;
-    font-size:15px;
-    font-weight:bold;
-    text-decoration:none;
+    box-shadow: inset 0px 0px 0px 0px #545454;
+    background-color: #282828;
+    border-radius: 6px;
+    border: 1px solid #545454;
+    display: inline-block;
+    cursor: pointer;
+    color: #dedede;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .button:hover {
-    background-color:#545454;
+    background-color: #545454;
 }
 
 .button:active {
-    position:relative;
-    top:1px;
+    position: relative;
+    top: 1px;
 }
 
 .select {
-    box-shadow:inset 0px 0px 0px 0px #545454;
-    background-color:#282828;
-    border-radius:6px;
-    border:1px solid #545454;
-    display:inline-block;
-    cursor:pointer;
-    color:#dedede;
-    font-family:Arial;
-    font-size:15px;
-    font-weight:bold;
-    text-decoration:none;
+    box-shadow: inset 0px 0px 0px 0px #545454;
+    background-color: #282828;
+    border-radius: 6px;
+    border: 1px solid #545454;
+    display: inline-block;
+    cursor: pointer;
+    color: #dedede;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
 }

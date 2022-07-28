@@ -1,8 +1,8 @@
 <?php
-$page = $_GET['page'];//set page from url
-
 //password protect this content
 require_once('protect.php');
+
+$page = $_GET['page'];//set page from url
 
 //function to pull the seasons information
 function getSeasons(){
