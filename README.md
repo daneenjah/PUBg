@@ -1,44 +1,44 @@
 This is a project I started to get back into programming after many years off. It's rough around the edges, but works for what my group wanted to see. The API calls were handled in Python but eventually I moved to PHP, those files are left under the old directory if you want to go that route.
 
-*config/cleanup.php* - deletes everything in the data directory.
+    *config/cleanup.php* - deletes everything in the data directory.
 
-*config/config.json* - stores the configuration data.
+    *config/config.json* - stores the configuration data.
 
-*config/login.php* - access the config section.
+    *config/login.php* - access the config section.
 
-*config/platform_select.php* - provides information for platform selection.
+    *config/platform_select.php* - provides information for platform selection.
 
-*config/player_select.php* - provides information on the number of players selected.
+    *config/player_select.php* - provides information on the number of players selected.
 
-*config/players.json* - stores the players data.
+    *config/players.json* - stores the players data.
 
-*config/protect.php* - secures the pages within the config directory.
+    *config/protect.php* - secures the pages within the config directory.
 
-*config/seasons.php* - updates data/seasons.txt, run this when a new season kicks off.
+    *config/seasons.php* - updates data/seasons.txt, run this when a new season kicks off.
 
-*config/settings.php* - settings main page.
+    *config/settings.php* - settings main page.
 
-*counter.php* - is a simple hit counter.
+    *counter.php* - is a simple hit counter.
 
-*index.php* - displays your team stats.
+    *index.php* - displays your team stats.
 
-*links.php* - provides the buttons for update/pubgreport and pubglookup.
+    *links.php* - provides the buttons for update/pubgreport and pubglookup.
 
-*overall.php* - displays some overall stats for your team.
+    *overall.php* - displays some overall stats for your team.
 
-*players.php* - loads the tables with the stats.
+    *players.php* - loads the tables with the stats.
 
-*playerstats.php* - shows stats for an individual player.
+    *playerstats.php* - shows stats for an individual player.
 
-*pull_all.php* - pulls season stats for all players defined in the config.
+    *pull_all.php* - pulls season stats for all players defined in the config.
 
-*pull_seasonstats.php* - pulls season stats for a player.
+    *pull_seasonstats.php* - pulls season stats for a player.
 
-*season_select.php* - provides information for season selection.
+    *season_select.php* - provides information for season selection.
 
-*stats_overall.php* - pulls from all seasons stored locally to display totals.
+    *stats_overall.php* - pulls from all seasons stored locally to display totals.
 
-*stats.php* - parses the JSON files to pull the stats.
+    *stats.php* - parses the JSON files to pull the stats.
 
 See it in action here: https://www.hootis.net/pubg
 
