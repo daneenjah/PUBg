@@ -49,7 +49,7 @@ I have opted to keep this JSON file based for now. I haven't had the inclination
 Clicking on a player's image will open up their stat page.
 
 
-*Todo*
+*Todo:*
 
     -Cleanup some of the client side code.
 
