@@ -51,16 +51,6 @@ Clicking on a player's image will open up their stat page.
 
 *Todo:*
 
-    -Cleanup some of the client side code.
-
-    -Cleanup the config page.
-
     -More secure login, at least hash the passwords.
 
-    -Change website name via config page.
-
     -Too many API requests notification to the user interface.
-
-    -If nothing shows (aka null) automatically do a pull on both overall stats and individual players page.
-
-    -Better use of tables via CSS for different sized screens/easier color adjustments.

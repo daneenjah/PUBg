@@ -164,7 +164,7 @@ if ($adrr >= 800) {
 
 echo "<tr>";
 echo "\n";
-echo "  <th class=tg1 colspan=2><center><font color=545454 size=2><b>" . date ("M d H:i", filemtime($myFile)) . "</b></font></center>";
+echo "  <th class=tg1 colspan=2><center>" . date ("M d H:i", filemtime($myFile)) . "</center>";
 
 echo "\n";
 echo "</tr>";

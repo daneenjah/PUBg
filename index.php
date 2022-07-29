@@ -1,15 +1,25 @@
+<?php
+//load config json
+$config = file_get_contents('config/config.json');
+
+//decode json to associative array
+$json_arr = json_decode($config, true);
+
+$title = $json_arr[3]['Amount'];
+?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Clapp'in Cheeks PUBg Stats</title>
+    <title><?php echo $title; ?></title>
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 <body>
   <center>
+    <h1 class="h1"><?php echo $title; ?></h1>
     <form method="get" action="playerstats.php" target="_blank">
         <input type="text" name="name">&nbsp;<input type="submit" name="query" class="button" value="Search"/>
     </form>
-<br />
+<br>
 <?php
 
 //set our page for referral back after stat updates
@@ -73,7 +83,6 @@ function submit() {
     $name = $_POST['name'];//pull the name from the form
     $season = $_POST['season'];//pull the season from the form
 }
-
 ?>
 <form method="post" action="index.php" name="update">
     <table class="tg2">
