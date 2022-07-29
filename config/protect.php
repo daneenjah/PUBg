@@ -8,4 +8,3 @@ if (empty($_COOKIE['password']) || $_COOKIE['password'] !== $password) {
     exit;
 }
 ?>
-
