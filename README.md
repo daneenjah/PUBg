@@ -51,6 +51,8 @@ Clicking on a player's image will open up their stat page.
 
 *Todo:*
 
-    -More secure login, at least hash the passwords.
+    -More secure login.
 
     -Too many API requests notification to the user interface.
+
+    -Add matches?
