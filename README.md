@@ -30,7 +30,11 @@ This is a project I started to get back into programming after many years off. I
 
     *playerstats.php* - shows stats for an individual player.
 
+    *playerstats_lifetime.php* - shows lifetime stats for an individual player.
+
     *pull_all.php* - pulls season stats for all players defined in the config.
+
+    *pull_lifestats.php* - pulls lifetime stats.
 
     *pull_seasonstats.php* - pulls season stats for a player.
 
