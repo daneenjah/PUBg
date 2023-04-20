@@ -81,4 +81,8 @@ echo "  <th class=tg3 colspan=2>Total Matches: " . number_format($matchesrr) ."<
 echo "\n";
 echo "</tr>";
 echo "\n";
+
+echo "<tr>";
+echo "\n";
+echo "  <th class=tg3 colspan=2><form action=playerstats_lifetime.php target=_blank><button type=submit class=button>Lifetime Stats</button><input type=hidden name=name value=$name></form></tr>";
 ?>
