@@ -78,7 +78,7 @@ function getSeason(){
     curl_setopt($ch, CURLOPT_URL,"https://api.pubg.com/shards/$platform/players/$account/seasons/$season");
     //set a timeout, because PUBg API can hang randomly
     curl_setopt($ch, CURLOPT_TIMEOUT, 4);
-    //set out headers
+    //set our headers
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     //return if it failed or not, used later in the loop
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
