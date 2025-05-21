@@ -55,7 +55,7 @@ Clicking on a player's image will open up their stat page.
 
 *Todo:*
 
-    -More secure login.
+    -More secure login: not show contents of config directory.
 
     -Too many API requests notification to the user interface.
 

@@ -25,7 +25,7 @@ if (isset($_POST['password']) && $_POST['password'] == $password) {
         You must enter the password to view this content.
         <br>
         <form method="POST">
-            <input type="hidden" name="password">
+            <input type="text" name="password" value="password">
         </form>
     </div>
 </body>

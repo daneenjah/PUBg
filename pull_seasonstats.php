@@ -133,10 +133,11 @@ function getSeason(){
     fclose($fp);
 }
 
-//run the function
+//run the function after a quick sleep
+sleep(5);
 getSeason();
 
 //send us back to the previous page
-header("location:" .$page);
+header('Location: ' . $_SERVER['HTTP_REFERER']);
 exit();
 ?>

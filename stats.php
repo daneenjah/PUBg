@@ -21,7 +21,6 @@ if ($mode == "") {
 } elseif ($mode == "solo") {
     $hcolor = "<font color=#914B16>";
 }
-
 //if there are matches, set the rest of the variables
 if (($roundsPlayed = $data["data"]["attributes"]["gameModeStats"][$mode]["roundsPlayed"]) != 0) {
 

@@ -89,37 +89,6 @@ while ($i++ < $seasons)
     $count = $count+1;
 }
 
-//make the seasons2.txt file
-$file = fopen('../data/seasons2.txt', 'w');
-fwrite($file, "");
-fclose($file);
-
-//reverse the lines, PUBg sends API with newest at the bottom of JSON
-$file = file('../data/seasons.txt');
-$read_rev = array_reverse($file);
-$count=0;
-foreach ($read_rev as $dis_line) {
-    $nfile = fopen('../data/seasons2.txt', 'a+');
-    fwrite($nfile, $dis_line);
-    fclose($nfile);
-}
-
-//look for console in the text file and delete it as we only want the PC seaosons
-$rows = file("../data/seasons2.txt");
-$blacklist = "console";
-
-foreach($rows as $key => $row) {
-    if(preg_match("/($blacklist)/", $row)) {
-        unset($rows[$key]);
-    }
-}
-
-file_put_contents("../data/seasons2.txt", implode( $rows));
-
-//copy seasons2.txt that was created to seasons.txt and delete the others
-copy("../data/seasons2.txt","../data/seasons.txt");
-unlink("../data/seasons2.txt");
-
 //send us back to the previous page
 header("location:" .$page);
 exit();
